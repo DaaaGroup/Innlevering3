@@ -49,7 +49,7 @@ public class NewspaperTest
     @Test
     public void getTitleTest()
     {
-        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 1, "days");
+        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals("nettavisen", newspape1.getTitle());
     }
 
@@ -60,7 +60,7 @@ public class NewspaperTest
     @Test
     public void getPublisherTest()
     {
-        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 1, "days");
+        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals("nettavisen.no", newspape1.getPublisher());
     }
 
@@ -71,7 +71,7 @@ public class NewspaperTest
     @Test
     public void getEveryTest()
     {
-        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 1, "days");
+        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals(1, newspape1.getEvery());
     }
 
@@ -82,7 +82,7 @@ public class NewspaperTest
     @Test
     public void getDaysWeeksMonthsTest()
     {
-        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 1, "days");
+        Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertSame("days", newspape1.getDaysWeeksMonths());
     }
 }

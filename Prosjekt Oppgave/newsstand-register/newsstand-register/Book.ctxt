@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=title\ publisher\ every\ releaseDate\ daysWeeksMonths
+comment0.target=Book(java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Book\r\n
+numComments=1

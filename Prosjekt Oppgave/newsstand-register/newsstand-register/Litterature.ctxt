@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=title\ publisher\ releaseDate
+comment0.target=Litterature(java.lang.String,\ java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Litterature\r\n
+comment1.params=
+comment1.target=int\ getSerialNumber()
+comment1.text=\r\n\ Returns\ the\ newspaper's\ serial\ number.\r\n\ @return\ Returns\ the\ newspaper's\ serial\ number.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getTitle()
+comment2.text=\r\n\ Returns\ the\ title\ of\ the\ newspaper.\r\n\ @return\ Returns\ the\ title\ of\ the\ newspaper.\r\n
+comment3.params=
+comment3.target=java.lang.String\ getPublisher()
+comment3.text=\r\n\ Returns\ the\ name\ of\ the\ publisher.\r\n\ @return\ Returns\ the\ name\ of\ the\ publisher.\r\n
+numComments=4

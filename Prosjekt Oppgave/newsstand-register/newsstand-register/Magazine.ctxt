@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=title\ publisher\ every\ releaseDate\ daysWeeksMonths
+comment0.target=Magazine(java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
+comment0.text=\r\n\ Creates\ a\ new\ magazine.\r\n\ @param\ title\ Title\ of\ the\ magazine.\r\n\ @param\ publisher\ Name\ of\ the\ publisher.\r\n\ @param\ every\ How\ often\ the\ newspaper\ is\ released.\r\n\ @param\ daysWeeksMonths\ Specified\ how\ many\ days,\ weeks\ or\ months\ there\ is\ between\ \r\n\ each\ release.\r\n
+numComments=1
