@@ -111,15 +111,24 @@ public class NewsstandUI
                 int releasedEvery = getInputInt();
                 if(releasedEvery > 0)
                 {
-                    System.out.println("Days/Weeks/months");
-                    String daysWeeksMonths = getInputString();
-                    if(!daysWeeksMonths.equals(""))
+                    System.out.println("Please enter release date");
+                    int releaseDate = getInputInt();
+                    if(releaseDate > 0)
                     {
-                        register.addNewspaper(title, publisher, releasedEvery, daysWeeksMonths);
+                        System.out.println("Days/Weeks/months");
+                        String daysWeeksMonths = getInputString();
+                        if(!daysWeeksMonths.equals(""))
+                        {
+                            register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
+                        }
+                        else
+                        {
+                            System.out.println("Try again, you forgot to specify how often it releases.");
+                        }
                     }
                     else
                     {
-                        System.out.println("Try again, you forgot to specify how often it releases.");
+                        System.out.println("Some shit");
                     }
                 }
                 else
@@ -150,7 +159,9 @@ public class NewsstandUI
 
         while(!userInput)
         {
-            if(register.removeNewspaper(menuSelection))
+            System.out.println("LAWL");
+            userInput = true;
+            /*if(register.removeNewspaper(menuSelection))
             {
                 System.out.println("\nYou have successfully removed the specified newspaper");
                 userInput = true;
@@ -159,7 +170,7 @@ public class NewsstandUI
             {
                 System.out.println("\nERROR: That newspaper doesn't exist, please enter a valid number.");
                 userInput = true;
-            }
+            }*/
         }
     }
 
@@ -197,7 +208,7 @@ public class NewsstandUI
         }
         return menuSelection;
     }
-    
+
     // NOT FOR YOU ARNE ;)... YET
     /*
     /**
@@ -208,22 +219,22 @@ public class NewsstandUI
      */
     /*
     public String searchForTitleAndAuthor(String input){
-        String matchingBooksString = "";
-        for(Book selectedBook : booksList){
-            if(selectedBook.getTitle().contains(input)){
-                matchingBooksString += selectedBook.getInfoString() + "\n";
-            }
-            else if(selectedBook.getPublisher().contains(input)){
-                matchingBooksString += selectedBook.getInfoString() + "\n";
-            }
-            else if(selectedBook.getTitle().toLowerCase().contains(input)){
-                matchingBooksString += selectedBook.getInfoString() + "\n";
-            }
-            else if(selectedBook.getAuthor().toLowerCase().contains(input)){
-                matchingBooksString += selectedBook.getInfoString() + "\n";
-            }
-        }
-        return matchingBooksString;
+    String matchingBooksString = "";
+    for(Book selectedBook : booksList){
+    if(selectedBook.getTitle().contains(input)){
+    matchingBooksString += selectedBook.getInfoString() + "\n";
+    }
+    else if(selectedBook.getPublisher().contains(input)){
+    matchingBooksString += selectedBook.getInfoString() + "\n";
+    }
+    else if(selectedBook.getTitle().toLowerCase().contains(input)){
+    matchingBooksString += selectedBook.getInfoString() + "\n";
+    }
+    else if(selectedBook.getAuthor().toLowerCase().contains(input)){
+    matchingBooksString += selectedBook.getInfoString() + "\n";
+    }
+    }
+    return matchingBooksString;
     }   
-    */
+     */
 }

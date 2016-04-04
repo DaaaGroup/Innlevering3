@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class Register
 {
     // The list of Newspapers in this register
-    private ArrayList<Newspaper> newspapers;
+    private ArrayList<Litterature> litteratures;
 
     /**
      * Creates a new register object with an array list of newspapers.
      */
     public Register()
     {
-        newspapers = new ArrayList<Newspaper>();
+        litteratures = new ArrayList<Litterature>();
     }
 
     /**
@@ -29,9 +29,9 @@ public class Register
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
-    public void addNewspaper(String title, String publisher, int every, String daysWeeksMonths)
+    public void addNewspaper(String title, String publisher, int every, int releaseDate, String daysWeeksMonths)
     {
-        newspapers.add(new Newspaper(title, publisher, every, daysWeeksMonths));
+        litteratures.add(new Newspaper(title, publisher, every, releaseDate, daysWeeksMonths));
     }
 
     /**
@@ -41,12 +41,17 @@ public class Register
     public String showNewspapers()
     {
         String newspaperDetails ="";
-        for(Newspaper newspaper : newspapers)
+        for(Litterature litterature : litteratures)
         {
-            newspaperDetails += "\n### NEWSPAPER " + newspaper.getSerialNumber() + " ###";
-            newspaperDetails += "\nTitle: " + newspaper.getTitle();
-            newspaperDetails += "\nPublisher: " + newspaper.getPublisher();
-            newspaperDetails += "\nReleases every: " + newspaper.getEvery() + " " + newspaper.getDaysWeeksMonths();
+            if(litterature instanceof Newspaper)
+            {
+                Newspaper newspaper = (Newspaper) litterature;
+                newspaperDetails += "\n### NEWSPAPER " + newspaper.getSerialNumber() + " ###";
+                newspaperDetails += "\nTitle: " + newspaper.getTitle();
+                newspaperDetails += "\nPublisher: " + newspaper.getPublisher();
+                newspaperDetails += "\nReleases every: " + newspaper.getEvery() + " " + newspaper.getDaysWeeksMonths();
+            }
+
         }
         return newspaperDetails;
     }
@@ -55,21 +60,21 @@ public class Register
      * Removes a spesified newspaper from the register.
      * @param serialNumber The number of the newspaper you wish to remove.
      */
-    public boolean removeNewspaper(int serialNumber)
+    /* public boolean removeNewspaper(int serialNumber)
     {
-        boolean success = false;
-        if(-1 != newspaperIndex(serialNumber))
-        {
-            newspapers.remove(newspaperIndex(serialNumber));
-            success = true;
-        }
-        else
-        {
-            success = false;
-        }
-        return success;
+    boolean success = false;
+    if(-1 != newspaperIndex(serialNumber))
+    {
+    newspapers.remove(newspaperIndex(serialNumber));
+    success = true;
     }
-    
+    else
+    {
+    success = false;
+    }
+    return success;
+    }*/
+
     /**
      * Returns the index of the newspaper.
      * @param serialNumber The serial number of the newspaper. 
@@ -79,11 +84,15 @@ public class Register
     {
         //
         int index = -1;
-        for( Newspaper newspaper : newspapers)
+        for(Litterature litterature : litteratures)
         {
-            if( serialNumber == newspaper.getSerialNumber() )
+            if(litterature instanceof Newspaper)
             {
-                index = this.newspapers.indexOf(newspaper);
+                Newspaper newspaper = (Newspaper) litterature;
+                if( serialNumber == newspaper.getSerialNumber() )
+                {
+                    index = this.litteratures.indexOf(newspaper);
+                }
             }
         }
         return index;
@@ -94,9 +103,9 @@ public class Register
      */
     /*public void addDummyObjects()
     {
-        addNewspaper("VG", "VG", 3, "days");
-        addNewspaper("Sunnmørsposten", "smp.no", 5, "years");
-        addNewspaper("Brønnøysund Avis", "banett.no", 3, "weeks");
-        System.out.println("Dummy objects sucessfully added.");
+    addNewspaper("VG", "VG", 3, "days");
+    addNewspaper("Sunnmørsposten", "smp.no", 5, "years");
+    addNewspaper("Brønnøysund Avis", "banett.no", 3, "weeks");
+    System.out.println("Dummy objects sucessfully added.");
     }*/
 }
