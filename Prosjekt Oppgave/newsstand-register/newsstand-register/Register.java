@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class Register
 {
     // The list of Newspapers in this register
-    private ArrayList<Litterature> litteratures;
+    private ArrayList<Literature> literatureInStock;
 
     /**
      * Creates a new register object with an array list of newspapers.
      */
     public Register()
     {
-        litteratures = new ArrayList<Litterature>();
+        literatureInStock = new ArrayList<>();
     }
 
     /**
@@ -26,22 +26,24 @@ public class Register
      * @param title     Title of the newspaper.
      * @param publisher Name of the publisher.
      * @param every     How often the newspaper is released.
+     * @param releaseDate
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
     public void addNewspaper(String title, String publisher, int every, int releaseDate, String daysWeeksMonths)
     {
-        litteratures.add(new Newspaper(title, publisher, every, releaseDate, daysWeeksMonths));
+        literatureInStock.add(new Newspaper(title, publisher, every, releaseDate, daysWeeksMonths));
     }
 
     /**
      * An acessor method that prints out relevant information about all the newpapers.
      * Such as: Title, publisher & amount of time between releases.
+     * @return 
      */
     public String showNewspapers()
     {
         String newspaperDetails ="";
-        for(Litterature litterature : litteratures)
+        for(Literature litterature : literatureInStock)
         {
             if(litterature instanceof Newspaper)
             {
@@ -84,14 +86,14 @@ public class Register
     {
         //
         int index = -1;
-        for(Litterature litterature : litteratures)
+        for(Literature litterature : literatureInStock)
         {
             if(litterature instanceof Newspaper)
             {
                 Newspaper newspaper = (Newspaper) litterature;
                 if( serialNumber == newspaper.getSerialNumber() )
                 {
-                    index = this.litteratures.indexOf(newspaper);
+                    index = this.literatureInStock.indexOf(newspaper);
                 }
             }
         }

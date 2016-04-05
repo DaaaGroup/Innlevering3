@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1, 
  */
-public class BookSeries extends Litterature
+public class BookSeries extends Literature
 {
     // Name of the author
     private String author;
@@ -17,7 +17,12 @@ public class BookSeries extends Litterature
     
     
     /**
-     * Constructor for objects of class BookSeries
+     * 
+     * @param title
+     * @param publisher
+     * @param every
+     * @param releaseDate
+     * @param daysWeeksMonths 
      */
     public BookSeries(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
     {

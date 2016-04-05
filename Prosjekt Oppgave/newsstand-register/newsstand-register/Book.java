@@ -7,13 +7,18 @@
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1, 
  */
-public class Book extends Litterature
+public class Book extends Literature
 {
     // Name of the author
     private String author;
 
     /**
-     * Constructor for objects of class Book
+     * 
+     * @param title
+     * @param publisher
+     * @param every
+     * @param releaseDate
+     * @param daysWeeksMonths 
      */
     public Book(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
     {

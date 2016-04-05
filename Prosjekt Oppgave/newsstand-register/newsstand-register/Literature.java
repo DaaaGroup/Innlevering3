@@ -1,4 +1,5 @@
 
+
 /**
  * Represents the different littatures.
  * The litteratures have following details:
@@ -7,7 +8,7 @@
  *@author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  *@version 0.1
  */
-public class Litterature
+public class Literature
 {
     // The title of the paper.
     private String title;
@@ -23,7 +24,7 @@ public class Litterature
     /**
      * Constructor for objects of class Litterature
      */
-    public Litterature(String title, String publisher, int releaseDate)
+    public Literature(String title, String publisher, int releaseDate)
     {
         this.title = title;
         this.publisher = publisher;
