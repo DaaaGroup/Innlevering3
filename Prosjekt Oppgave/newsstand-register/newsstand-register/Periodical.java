@@ -24,21 +24,18 @@ public class Periodical extends Literature
      * @param releaseDate
      * @param daysWeeksMonths 
      */
-    public Periodical(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
+    public Periodical(String title, String publisher,int every, String releaseDate, String daysWeeksMonths)
     {
-            super(title, publisher, every);
+            super(title, publisher, releaseDate);
     }
     
     @Override
     public String getLongDescription()
     {
         String newspaperDetails ="";
-           /*
-        newspaperDetails += "\n### NEWSPAPER " + getSerialNumber() + " ###";
+        newspaperDetails += "\n### PERIODICAL " + getSerialNumber() + " ###";
         newspaperDetails += "\nTitle: " + getTitle();
         newspaperDetails += "\nPublisher: " + getPublisher();
-        newspaperDetails += "\nReleases every: " + getEvery() + " " + getDaysWeeksMonths();
-        */
         return newspaperDetails;
     }
 }

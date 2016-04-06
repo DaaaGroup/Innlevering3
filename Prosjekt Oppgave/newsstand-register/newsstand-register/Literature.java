@@ -15,7 +15,7 @@ public abstract class Literature
     // The name of the publisher.
     private String publisher;
     // When released
-    private int releaseDate;
+    private String releaseDate;
     //The serial number of the product
     private final int NUMBER;
     // Number of the product
@@ -27,12 +27,12 @@ public abstract class Literature
      * @param publisher
      * @param releaseDate
      */
-    public Literature(String title, String publisher, int releaseDate)
+    public Literature(String title, String publisher, String releaseDate)
     {
         this.title = title;
         this.publisher = publisher;
         this.releaseDate = releaseDate;
-        NUMBER=numberOfProduct;
+        this.NUMBER = numberOfProduct;
         numberOfProduct++;
     }
 
@@ -42,7 +42,7 @@ public abstract class Literature
      */
     public int getSerialNumber()
     {
-        return NUMBER;
+        return this.NUMBER;
     }
 
     /**
@@ -51,7 +51,7 @@ public abstract class Literature
      */
     public String getTitle()
     {
-        return title;
+        return this.title;
     }
     
     
@@ -61,7 +61,12 @@ public abstract class Literature
      */
     public String getPublisher()
     {
-        return publisher;
+        return this.publisher;
+    }
+    
+    public String getReleaseDate()
+    {
+        return this.releaseDate;
     }
     
     public abstract String getLongDescription();

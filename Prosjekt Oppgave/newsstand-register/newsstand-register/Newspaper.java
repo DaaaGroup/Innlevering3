@@ -21,10 +21,10 @@ public class Newspaper extends Literature
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
-    public Newspaper(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
+    public Newspaper(String title, String publisher,int every, String releaseDate, String daysWeeksMonths)
     {
         super(title, publisher, releaseDate);
-        releasedEvery = every;
+        this.releasedEvery = every;
         this.daysWeeksMonths = daysWeeksMonths;
 
     }
@@ -35,7 +35,7 @@ public class Newspaper extends Literature
      */
     public int getEvery()
     {
-        return releasedEvery;
+        return this.releasedEvery;
     }
 
     /**
@@ -44,19 +44,8 @@ public class Newspaper extends Literature
      */
     public String getDaysWeeksMonths()
     {
-        return daysWeeksMonths;
+        return this.daysWeeksMonths;
     }
-
-    /**
-     * Print details
-     * @return 
-     */
-/*    public String getLongDescription()
-    {
-        String returnString = "";
-        returnString += getEvery() + getDaysWeeksMonths();
-        return returnString;
-    }*/
 
     @Override
     public String getLongDescription()
