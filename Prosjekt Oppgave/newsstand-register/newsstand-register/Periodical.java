@@ -33,12 +33,9 @@ public class Periodical extends Literature
     public String getLongDescription()
     {
         String newspaperDetails ="";
-           /*
-        newspaperDetails += "\n### NEWSPAPER " + getSerialNumber() + " ###";
+        newspaperDetails += "\n### PERIODICAL " + getSerialNumber() + " ###";
         newspaperDetails += "\nTitle: " + getTitle();
         newspaperDetails += "\nPublisher: " + getPublisher();
-        newspaperDetails += "\nReleases every: " + getEvery() + " " + getDaysWeeksMonths();
-        */
         return newspaperDetails;
     }
 }

@@ -32,7 +32,7 @@ public abstract class Literature
         this.title = title;
         this.publisher = publisher;
         this.releaseDate = releaseDate;
-        NUMBER=numberOfProduct;
+        this.NUMBER = numberOfProduct;
         numberOfProduct++;
     }
 
@@ -42,7 +42,7 @@ public abstract class Literature
      */
     public int getSerialNumber()
     {
-        return NUMBER;
+        return this.NUMBER;
     }
 
     /**
@@ -51,7 +51,7 @@ public abstract class Literature
      */
     public String getTitle()
     {
-        return title;
+        return this.title;
     }
     
     
@@ -61,12 +61,12 @@ public abstract class Literature
      */
     public String getPublisher()
     {
-        return publisher;
+        return this.publisher;
     }
     
     public String getReleaseDate()
     {
-        return releaseDate;
+        return this.releaseDate;
     }
     
     public abstract String getLongDescription();
