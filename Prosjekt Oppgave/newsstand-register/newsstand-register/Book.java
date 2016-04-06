@@ -25,4 +25,26 @@ public class Book extends Literature
         super(title, publisher, releaseDate);
 
     }
+    
+    @Override
+    public String getLongDescription()
+    {
+        String newspaperDetails ="";/*
+        for(Literature litterature : literatureInStock)
+        {
+            if(litterature instanceof Newspaper)
+            {
+                Newspaper newspaper = (Newspaper) litterature;
+                newspaperDetails += "\n### NEWSPAPER " + newspaper.getSerialNumber() + " ###";
+                newspaperDetails += "\nTitle: " + newspaper.getTitle();
+                newspaperDetails += "\nPublisher: " + newspaper.getPublisher();
+                newspaperDetails += "\nReleases every: " + newspaper.getEvery() + " " + newspaper.getDaysWeeksMonths();
+            }
+            if(litterature instanceof Magazine) {
+                System.out.println("lol");
+            }
+
+        }*/
+        return newspaperDetails;
+    }
 }

@@ -30,30 +30,22 @@ public class Register
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
-    public void addNewspaper(String title, String publisher, int every, int releaseDate, String daysWeeksMonths)
+/*    public void addNewspaper(String title, String publisher, int every, int releaseDate, String daysWeeksMonths)
     {
         literatureInStock.add(new Newspaper(title, publisher, every, releaseDate, daysWeeksMonths));
-    }
+    }*/
 
     /**
      * An acessor method that prints out relevant information about all the newpapers.
      * Such as: Title, publisher & amount of time between releases.
      * @return 
      */
-    public String showNewspapers()
+    public String listAllInventory()
     {
         String newspaperDetails ="";
-        for(Literature litterature : literatureInStock)
+        for(Literature literature : literatureInStock)
         {
-            if(litterature instanceof Newspaper)
-            {
-                Newspaper newspaper = (Newspaper) litterature;
-                newspaperDetails += "\n### NEWSPAPER " + newspaper.getSerialNumber() + " ###";
-                newspaperDetails += "\nTitle: " + newspaper.getTitle();
-                newspaperDetails += "\nPublisher: " + newspaper.getPublisher();
-                newspaperDetails += "\nReleases every: " + newspaper.getEvery() + " " + newspaper.getDaysWeeksMonths();
-            }
-
+            literature.getLongDescription();
         }
         return newspaperDetails;
     }
@@ -82,7 +74,7 @@ public class Register
      * @param serialNumber The serial number of the newspaper. 
      * @return index Returns the index of the newspaper.
      */
-    public int newspaperIndex(int serialNumber)
+/*    public int newspaperIndex(int serialNumber)
     {
         //
         int index = -1;
@@ -98,7 +90,7 @@ public class Register
             }
         }
         return index;
-    }
+    }*/
 
     /*/**
      * Dummy for newspaper objects to test if the register works.
