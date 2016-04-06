@@ -40,7 +40,7 @@ public class Newspaper extends Literature
     
     /**
      * Returns specifically how often the newspaper is released in days, weeks or months.
-     * @return Spesifies how often the newspaper is released in days, weeks or months.
+     * @return Specifies how often the newspaper is released in days, weeks or months.
      */
     public String getDaysWeeksMonths()
     {
