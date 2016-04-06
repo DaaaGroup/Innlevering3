@@ -24,9 +24,9 @@ public class Periodical extends Literature
      * @param releaseDate
      * @param daysWeeksMonths 
      */
-    public Periodical(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
+    public Periodical(String title, String publisher,int every, String releaseDate, String daysWeeksMonths)
     {
-            super(title, publisher, every);
+            super(title, publisher, releaseDate);
     }
     
     @Override

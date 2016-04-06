@@ -22,7 +22,7 @@ public class Magazine extends Literature
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
-    public Magazine (String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
+    public Magazine (String title, String publisher,int every, String releaseDate, String daysWeeksMonths)
     {
         super(title, publisher, releaseDate);
         releasedEvery = every;
