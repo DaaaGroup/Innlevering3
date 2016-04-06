@@ -2,13 +2,7 @@
 comment0.params=
 comment0.target=Register()
 comment0.text=\r\n\ Creates\ a\ new\ register\ object\ with\ an\ array\ list\ of\ newspapers.\r\n
-comment1.params=title\ publisher\ every\ releaseDate\ daysWeeksMonths
-comment1.target=void\ addNewspaper(java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
-comment1.text=\r\n\ Creates\ a\ new\ Newspaper.\r\n\ @param\ title\ \ \ \ \ Title\ of\ the\ newspaper.\r\n\ @param\ publisher\ Name\ of\ the\ publisher.\r\n\ @param\ every\ \ \ \ \ How\ often\ the\ newspaper\ is\ released.\r\n\ @param\ daysWeeksMonths\ Specified\ how\ many\ days,\ weeks\ or\ months\ there\ is\ between\ \r\n\ each\ release.\r\n
-comment2.params=
-comment2.target=java.lang.String\ showNewspapers()
-comment2.text=\r\n\ An\ acessor\ method\ that\ prints\ out\ relevant\ information\ about\ all\ the\ newpapers.\r\n\ Such\ as\:\ Title,\ publisher\ &\ amount\ of\ time\ between\ releases.\r\n
-comment3.params=serialNumber
-comment3.target=int\ newspaperIndex(int)
-comment3.text=\r\n\ Returns\ the\ index\ of\ the\ newspaper.\r\n\ @param\ serialNumber\ The\ serial\ number\ of\ the\ newspaper.\ \r\n\ @return\ index\ Returns\ the\ index\ of\ the\ newspaper.\r\n
-numComments=4
+comment1.params=
+comment1.target=java.lang.String\ listAllInventory()
+comment1.text=\r\n\ An\ acessor\ method\ that\ prints\ out\ relevant\ information\ about\ all\ the\ newpapers.\r\n\ Such\ as\:\ Title,\ publisher\ &\ amount\ of\ time\ between\ releases.\r\n\ @return\ \r\n
+numComments=2

@@ -30,15 +30,25 @@ public class Magazine extends Literature
    
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    /*public int sampleMethod(int y)
+    @Override
+    public String getLongDescription()
     {
-        // put your code here
-        return x + y;
-    }*/
+        String newspaperDetails ="";/*
+        for(Literature litterature : literatureInStock)
+        {
+            if(litterature instanceof Newspaper)
+            {
+                Newspaper newspaper = (Newspaper) litterature;
+                newspaperDetails += "\n### NEWSPAPER " + newspaper.getSerialNumber() + " ###";
+                newspaperDetails += "\nTitle: " + newspaper.getTitle();
+                newspaperDetails += "\nPublisher: " + newspaper.getPublisher();
+                newspaperDetails += "\nReleases every: " + newspaper.getEvery() + " " + newspaper.getDaysWeeksMonths();
+            }
+            if(litterature instanceof Magazine) {
+                System.out.println("lol");
+            }
+
+        }*/
+        return newspaperDetails;
+    }
 }

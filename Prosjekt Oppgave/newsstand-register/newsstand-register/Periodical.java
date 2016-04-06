@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1, 
  */
-public class Periodical
+public class Periodical extends Literature
 {
     // Name of the author
     private String author;
@@ -26,6 +26,19 @@ public class Periodical
      */
     public Periodical(String title, String publisher,int every, int releaseDate, String daysWeeksMonths)
     {
+            super(title, publisher, every);
     }
-
+    
+    @Override
+    public String getLongDescription()
+    {
+        String newspaperDetails ="";
+           /*
+        newspaperDetails += "\n### NEWSPAPER " + getSerialNumber() + " ###";
+        newspaperDetails += "\nTitle: " + getTitle();
+        newspaperDetails += "\nPublisher: " + getPublisher();
+        newspaperDetails += "\nReleases every: " + getEvery() + " " + getDaysWeeksMonths();
+        */
+        return newspaperDetails;
+    }
 }

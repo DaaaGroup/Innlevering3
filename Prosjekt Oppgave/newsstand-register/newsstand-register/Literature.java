@@ -8,7 +8,7 @@
  *@author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  *@version 0.1
  */
-public class Literature
+public abstract class Literature
 {
     // The title of the paper.
     private String title;
@@ -22,7 +22,10 @@ public class Literature
     private static int numberOfProduct = 1;
 
     /**
-     * Constructor for objects of class Litterature
+     * Constructor for objects of class Literature
+     * @param title
+     * @param publisher
+     * @param releaseDate
      */
     public Literature(String title, String publisher, int releaseDate)
     {
@@ -59,5 +62,7 @@ public class Literature
     public String getPublisher()
     {
         return publisher;
-    }    
+    }
+    
+    public abstract String getLongDescription();
 }

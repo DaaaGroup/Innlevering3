@@ -36,7 +36,7 @@ public class NewsstandUI
                 switch(menuSelection)
                 {
                     case 1:
-                    System.out.println(this.register.showNewspapers());
+                    //System.out.println(this.register.listAllInventory());
                     break;
 
                     case 2:
@@ -46,7 +46,7 @@ public class NewsstandUI
                     break;
 
                     case 3:
-                    System.out.println(this.register.showNewspapers());
+                    //System.out.println(this.register.listAllInventory());
                     System.out.println("\nPlease select which Newspaper you want to remove.");
                     this.waitForInput();
                     break;
@@ -119,7 +119,7 @@ public class NewsstandUI
                         String daysWeeksMonths = getInputString();
                         if(!daysWeeksMonths.equals(""))
                         {
-                            register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
+                          //  register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
                         }
                         else
                         {
