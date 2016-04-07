@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=title\ publisher\ every\ releaseDate\ daysWeeksMonths
-comment0.target=Book(java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
-comment0.text=\r\n\ \r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ every\r\n\ @param\ releaseDate\r\n\ @param\ daysWeeksMonths\ \r\n
+comment0.target=Book(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ every\r\n\ @param\ releaseDate\r\n\ @param\ daysWeeksMonths\r\n
 comment1.params=
 comment1.target=java.lang.String\ getLongDescription()
 numComments=2
