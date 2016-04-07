@@ -20,7 +20,7 @@ public class Book extends Literature {
      * @param releaseDate
      * @param daysWeeksMonths
      */
-    public Book(String title, String publisher, int every, String releaseDate, String daysWeeksMonths) {
+    public Book(String title, String publisher, String releaseDate) {
         super(title, publisher, releaseDate);
 
     }
