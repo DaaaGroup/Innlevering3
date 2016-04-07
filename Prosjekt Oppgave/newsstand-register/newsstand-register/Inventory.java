@@ -87,8 +87,7 @@ public class Inventory
         }
         return index;
     }
-
-    // NOT FOR YOU ARNE ;)... YET
+    
     /**
      * Returns a string with info on books matching search. Checks both name as it is and as lowercase
      * to avoid case-sensitivity. Will also return partial matches.
