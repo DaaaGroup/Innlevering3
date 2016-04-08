@@ -264,7 +264,7 @@ public class NewsstandUI
                     String releaseDate = getInputString();
                     if(!releaseDate.equals(""))
                     {
-                        register.addBook(title, author, publisher, releaseDate, belongsToBookSeries);
+                        register.addBook(title, author, publisher, releaseDate);
                     }
                     else
                     {

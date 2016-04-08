@@ -3,17 +3,18 @@ import java.util.ArrayList;
 
 
 /**
- * Write a description of class Inventory here.
+ * This class handles all of the literature in the inventory.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
  */
 public class Inventory
 {
+    // List which contains all the inventory in one place.
     private ArrayList<Literature> literatureInStock;
 
     /**
-     * Constructor for objects of class Inventory
+     * Creates an object of class Inventory. Initializes the inventory list
      */
     public Inventory()
     {
@@ -21,10 +22,12 @@ public class Inventory
     }
     
     /**
+     * This method is responsible for creating an object of type BookSeries and
+     * add it to the inventory list.
      * 
-     * @param title
-     * @param publisher
-     * @param releaseDate 
+     * @param title Title of the BookSeries
+     * @param publisher Name of publishing company.
+     * @param releaseDate date of release.
      */
     public void addNewBookSeries(String title, String publisher, String releaseDate)
     {
@@ -33,25 +36,28 @@ public class Inventory
     }
     
     /**
+     * This method is responsible for creating an object of type Book and
+     * add it to the inventory list.
      * 
-     * @param title
-     * @param author
-     * @param publisher
-     * @param releaseDate
-     * @param belongsToPeriodical 
+     * @param title Title of book
+     * @param author Name of the Author
+     * @param publisher Name of publishing company
+     * @param releaseDate Date of release
      */
-    public void addNewBook(String title, String author, String publisher, String releaseDate, boolean belongsToPeriodical)
+    public void addNewBook(String title, String author, String publisher, String releaseDate)
     {
         Book newBook = new Book(title, author, publisher, releaseDate);
         literatureInStock.add(newBook);
     }
     
     /**
+     * This method is responsible for creating an object of type Magazine and
+     * add it to the inventory list.
      * 
-     * @param title
-     * @param publisher
-     * @param numberPerWeek
-     * @param releaseDate 
+     * @param title Title of magazine
+     * @param publisher name of publishing company
+     * @param numberPerWeek number of releases per week
+     * @param releaseDate date of release
      */
     public void addNewMagazine(String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -60,11 +66,13 @@ public class Inventory
     }
     
     /**
+     * This method is responsible for creating an object of type Newspaper and
+     * add it to the inventory list.
      * 
-     * @param title
-     * @param publisher
-     * @param numberPerWeek
-     * @param releaseDate 
+     * @param title Title of Newspaper
+     * @param publisher Name of publishing company
+     * @param numberPerWeek Number of releases per week
+     * @param releaseDate Date of release
      */
     public void addNewNewspaper(String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -73,11 +81,13 @@ public class Inventory
     }
 
     /**
-     *
-     * @param title
-     * @param publisher
-     * @param numberPerWeek
-     * @param releaseDate
+     *This method is responsible for creating an object of type Periodical and
+     * add it to the inventory list.
+     * 
+     * @param title Title of periodical
+     * @param publisher Name of publishing company
+     * @param numberPerWeek Number of releases per week
+     * @param releaseDate Date of release
      */
     public void addNewPeriodical(String title, String publisher, int numberPerWeek, String releaseDate) 
     {
@@ -86,8 +96,10 @@ public class Inventory
     }
     
     /**
+     * This method builds up a string that describes in detail every item
+     * in the inventory
      * 
-     * @return 
+     * @return literatureDetails A string describing in detail every item in the inventory
      */
     public String listAllInventory()
     {
@@ -100,9 +112,11 @@ public class Inventory
     }
     
     /**
+     * Takes the serial number of an item (which is unique) and uses that to
+     * remove said item from the inventory.
      * 
-     * @param serialNumber
-     * @return 
+     * @param serialNumber The unique serial number for each item
+     * @return success Whether or not it was successful in removing the item.
      */
     public boolean removeItem(int serialNumber)
     {
@@ -118,9 +132,10 @@ public class Inventory
     }
 
     /**
-     * Returns the index of the newspaper.
-     * @param serialNumber The serial number of the newspaper. 
-     * @return index Returns the index of the newspaper.
+     * Returns the index of the item.
+     * 
+     * @param serialNumber The serial number of the item. 
+     * @return index Returns the index of the item.
      */
     public int itemIndex(int serialNumber)
     {
@@ -136,10 +151,11 @@ public class Inventory
     }
     
     /**
-     * Returns a string with info on books matching search. Checks both name as it is and as lowercase
-     * to avoid case-sensitivity. Will also return partial matches.
-     * @param input
-     * @return returns string with info on all books matching search. each book will be separated with linebreak.
+     * Returns a string with info on items matching search string. Checks both title
+     * and publisher. Will also return partial matches.
+     * 
+     * @param input The string it should use to find matching items.
+     * @return matchingItems A list of items matching the search string.
      */
     public ArrayList<Literature> searchForTitleAndPublisher(String input)
     {
@@ -157,8 +173,10 @@ public class Inventory
     }
     
     /**
+     * Picks out all the books from the inventory and puts them in an list
+     * of their own
      * 
-     * @return 
+     * @return matchingItems A list of all the books in the inventory
      */
     public ArrayList<Literature> returnListOfBooks()
     {
@@ -173,8 +191,10 @@ public class Inventory
     }
     
     /**
+     * Picks out all the bookseries from the inventory and puts them in an list
+     * of their own
      * 
-     * @return 
+     * @return matchingItems A list of all the bookseries in the inventory 
      */
     public ArrayList<Literature> returnListOfBookSeries()
     {
@@ -189,8 +209,10 @@ public class Inventory
     }
     
     /**
+     * Picks out all the magazines from the inventory and puts them in an list
+     * of their own
      * 
-     * @return 
+     * @return matchingItems A list of all the magazines in the inventory
      */
     public ArrayList<Literature> returnListOfMagazine()
     {
@@ -205,8 +227,10 @@ public class Inventory
     }
     
     /**
+     * Picks out all the newspapers from the inventory and puts them in an list
+     * of their own
      * 
-     * @return 
+     * @return matchingItems A list of all the newspapers in the inventory
      */
     public ArrayList<Literature> returnListOfNewspaper()
     {
@@ -221,8 +245,10 @@ public class Inventory
     }
     
     /**
+     * Picks out all the periodicals from the inventory and puts them in an list
+     * of their own
      * 
-     * @return 
+     * @return matchingItems A list of all the periodicals in the inventory
      */
     public ArrayList<Literature> returnListOfPeriodical()
     {
@@ -237,8 +263,11 @@ public class Inventory
     }
     
     /**
+     * Picks out from the inventory a book and takes its fields and
+     * transfers them into a new bookseries object, which is in turn added to
+     * the inventory. Effectively converting a book into a book series.
      * 
-     * @param menuSelection 
+     * @param menuSelection the book which should be converted.
      */
     void convertBook(int menuSelection)
     {

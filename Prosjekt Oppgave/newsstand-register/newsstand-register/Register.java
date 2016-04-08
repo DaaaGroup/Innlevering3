@@ -61,11 +61,10 @@ public class Register {
      * @param title Title of the book.
      * @param author The authors name.
      * @param publisher Name of the publisher.
-     * @param belongsToBookSeries If the book belongs to a book series.
      * @param releaseDate When the book is released. 
      */
-    public void addBook(String title, String author, String publisher, String releaseDate, boolean belongsToBookSeries) {
-        inventory.addNewBook(title, author, publisher, releaseDate, belongsToBookSeries);
+    public void addBook(String title, String author, String publisher, String releaseDate) {
+        inventory.addNewBook(title, author, publisher, releaseDate);
     }
 
     /**
