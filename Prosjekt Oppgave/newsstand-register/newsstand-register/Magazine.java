@@ -20,9 +20,9 @@ public class Magazine extends Literature
      * @param daysWeeksMonths Specified how many days, weeks or months there is between 
      * each release.
      */
-    public Magazine (String title, String publisher, int numberPerWeek)
+    public Magazine (String title, String publisher, int numberPerWeek, String releaseDate)
     {
-        super(title, publisher, "NOPE");
+        super(title, publisher, releaseDate);
         this.numberPerWeek = numberPerWeek;
    
     }
@@ -30,10 +30,12 @@ public class Magazine extends Literature
     @Override
     public String getLongDescription()
     {
-        String newspaperDetails ="";
-                newspaperDetails += "\n### MAGAZINE " + getSerialNumber() + " ###";
-                newspaperDetails += "\nTitle: " + getTitle();
-                newspaperDetails += "\nPublisher: " + getPublisher();
-        return newspaperDetails;
+        String magazineDetails ="";
+                magazineDetails += "\n### MAGAZINE " + getSerialNumber() + " ###";
+                magazineDetails += "\nTitle: " + getTitle();
+                magazineDetails += "\nPublisher: " + getPublisher();
+                magazineDetails += "\nReleases " + numberPerWeek + " times per week";
+                magazineDetails += "\nIssue released: " + getReleaseDate();
+        return magazineDetails;
     }
 }

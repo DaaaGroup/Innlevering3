@@ -118,11 +118,12 @@ public class NewsstandUI
                 break;
 
                 case 2:
-                    //this.registerNewPeriodical();
+                    //this.registerNewBookSeries();
+                    this.newBookSeriesMenu();
                 break;
 
                 case 3:
-                    //this.registerNewMagazine();
+                    this.registerNewMagazine();
                 break;
 
                 case 4:
@@ -134,6 +135,46 @@ public class NewsstandUI
                 break;
 
                 default:    
+            }
+        }
+    }
+    
+    private int showNewBookSeriesMenu() throws InputMismatchException
+    {
+        System.out.println("\n**** Add new books to bookseries ****\n");
+        System.out.println("1. Add book");
+        System.out.println("2. Finish");
+        System.out.println("3. Go back");
+        System.out.println("Please choose menu item (1-3): ");
+
+        int menuSelection = inputReader();
+        if ((menuSelection < 1) || (menuSelection > 3)) {
+            throw new InputMismatchException();
+        }
+        return menuSelection;
+    }
+    
+    private void newBookSeriesMenu()
+    {
+        boolean back = false;
+        while(!back) {
+            int menuSelection = this.showNewBookSeriesMenu();
+            switch(menuSelection) {
+                
+                case 1:
+                    //this.registerNewBook();
+                 //   periodical.addNewBook(this.registerNewBook())
+                    break;
+                
+                case 2:
+                    //this.registerNewBookSeries();
+                    break;
+                
+                case 3:
+                    back = true;
+                    break;
+                
+                default:
             }
         }
     }
@@ -160,7 +201,7 @@ public class NewsstandUI
                         String daysWeeksMonths = getInputString();
                         if(!daysWeeksMonths.equals(""))
                         {
-                            register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
+                            register.addBook(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
                         }
                         else
                         {
@@ -188,7 +229,7 @@ public class NewsstandUI
         }
     }*/
     
-   /* private void registerNewPeriodical()
+    /*private void registerNewBookSeries()
     { 
         System.out.println("Please enter title");
         String title = getInputString();
@@ -210,7 +251,7 @@ public class NewsstandUI
                         String daysWeeksMonths = getInputString();
                         if(!daysWeeksMonths.equals(""))
                         {
-                            register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
+                            register.addNewBookSeries(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
                         }
                         else
                         {
@@ -238,7 +279,7 @@ public class NewsstandUI
         }
     }*/
     
-    /*private void registerNewMagazine()
+    private void registerNewMagazine()
     { 
         System.out.println("Please enter title");
         String title = getInputString();
@@ -248,24 +289,15 @@ public class NewsstandUI
             String publisher = getInputString();
             if(!publisher.equals(""))
             {
-                System.out.println("Please enter number of days/weeks/months between release");
-                int releasedEvery = getInputInt();
-                if(releasedEvery > 0)
+                System.out.println("Please enter how many times per week this newspaper releases:");
+                int numberPerWeek = getInputInt();
+                if(numberPerWeek > 0)
                 {
-                    System.out.println("Please enter release date");
+                    System.out.println("Please enter release date:");
                     String releaseDate = getInputString();
                     if(!releaseDate.equals(""))
                     {
-                        System.out.println("Days/Weeks/months");
-                        String daysWeeksMonths = getInputString();
-                        if(!daysWeeksMonths.equals(""))
-                        {
-                            register.addNewspaper(title, publisher, releasedEvery, releaseDate, daysWeeksMonths);
-                        }
-                        else
-                        {
-                            System.out.println("Try again, you forgot to specify how often it releases.");
-                        }
+                        register.addMagazine(title, publisher, numberPerWeek, releaseDate);
                     }
                     else
                     {
@@ -286,7 +318,7 @@ public class NewsstandUI
         {
             System.out.println("Try again, you forgot to add a title!");
         }
-    }*/
+    }
 
     /**
      * This method registers a new newspaper to the array list.

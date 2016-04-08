@@ -33,6 +33,20 @@ public class Register
     {
         inventory.addNewNewspaper(title, publisher, numberPerWeek, releaseDate);
     }
+    
+    /**
+     * Creates a new Magazine.
+     * @param title     Title of the magazine.
+     * @param publisher Name of the publisher.
+     * @param numberPerWeek     How often the magazine is released.
+     * @param releaseDate
+     * @param daysWeeksMonths Specified how many days, weeks or months there is between 
+     * each release.
+     */
+    public void addMagazine(String title, String publisher, int numberPerWeek, String releaseDate)
+    {
+        inventory.addNewMagazine(title, publisher, numberPerWeek, releaseDate);
+    }
 
     /**
      * An accessor method that returns relevant information about the inventory.

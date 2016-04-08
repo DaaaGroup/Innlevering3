@@ -11,6 +11,7 @@ public class Book extends Literature {
 
     // Name of the author
     private String author;
+    private boolean belongsToPeriodical;
 
     /**
      *
@@ -20,17 +21,40 @@ public class Book extends Literature {
      * @param releaseDate
      * @param daysWeeksMonths
      */
-    public Book(String title, String publisher, String releaseDate) {
+    public Book(String title, String author, String publisher, String releaseDate, boolean belongsToPeriodical) {
         super(title, publisher, releaseDate);
+        this.author = author;
+        this.belongsToPeriodical = belongsToPeriodical;
+        
 
+    }
+    
+    public boolean getBelongsToPeriodical() 
+    {
+        return belongsToPeriodical;
     }
 
     @Override
-    public String getLongDescription() {
-        String newspaperDetails = "";
-        newspaperDetails += "\n### BOOK " + getSerialNumber() + " ###";
-        newspaperDetails += "\nTitle: " + getTitle();
-        newspaperDetails += "\nPublisher: " + getPublisher();
-        return newspaperDetails;
+    public String getLongDescription()
+    {
+        String bookDetails = "";
+        if(!belongsToPeriodical) {
+            bookDetails += "\n### BOOK " + getSerialNumber() + " ###";
+            bookDetails += "\nTitle: " + getTitle();
+            bookDetails += "\nAuthor: " + author;
+            bookDetails += "\nPublisher: " + getPublisher();
+            bookDetails += "\nReleasedate: " + getReleaseDate() + "\n";
+        }
+        return bookDetails;
+    }
+    
+    public String getLongDescriptionBookSeries() {
+        String bookDetails = "";
+        bookDetails += "\n### BOOK " + getSerialNumber() + " ###";
+        bookDetails += "\nTitle: " + getTitle();
+        bookDetails += "\nAuthor: " + author;
+        bookDetails += "\nPublisher: " + getPublisher();
+        bookDetails += "\nReleasedate: " + getReleaseDate() + "\n";
+        return bookDetails;
     }
 }

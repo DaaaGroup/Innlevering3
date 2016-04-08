@@ -21,21 +21,21 @@ public class Inventory
         literatureInStock = new ArrayList<>();
     }
     
-    public void addNewPeriodical(String title, String publisher)
+    public void addNewBookSeries(String title, String publisher, String releaseDate)
     {
-        Periodical newPeriodical = new Periodical(title, publisher);
-        literatureInStock.add(newPeriodical);
+        BookSeries newBookSeries = new BookSeries(title, publisher, releaseDate);
+        literatureInStock.add(newBookSeries);
     }
     
-    public void addNewBook(String title, String publisher, String releaseDate)
+    public void addNewBook(String title, String publisher, String releaseDate, boolean belongsToPeriodical)
     {
-        Book newBook = new Book(title, publisher, releaseDate);
+        Book newBook = new Book(title, null, publisher, releaseDate, belongsToPeriodical);
         literatureInStock.add(newBook);
     }
     
-    public void addNewMagazine(String title, String publisher, int numberPerWeek)
+    public void addNewMagazine(String title, String publisher, int numberPerWeek, String releaseDate)
     {
-        Magazine newMagazine = new Magazine(title, publisher, numberPerWeek);
+        Magazine newMagazine = new Magazine(title, publisher, numberPerWeek, releaseDate);
         literatureInStock.add(newMagazine);
     }
     
