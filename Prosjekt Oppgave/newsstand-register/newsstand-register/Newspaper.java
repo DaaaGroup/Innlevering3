@@ -34,6 +34,7 @@ public class Newspaper extends Literature
     }
 
     /**
+     * Gets all the information about the newspaper. The serial number, 
      * the title, the publisher, how many releases per week and the release date 
      * and stores it in a String.
      * 
