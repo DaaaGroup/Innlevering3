@@ -30,8 +30,8 @@ public class BookSeries extends Literature {
      *
      * Prints out the information of the book series.
      *
-     * @return Return the details of the book series. Such as the serial number
-     * , the title, publisher and the release date.
+     * @return Return the details of the book series. 
+     * Such as the serial number, the title, publisher and the release date.
      *
      */
     @Override

@@ -1,5 +1,6 @@
 /**
  * This class represents a Magazine in our newsstand application.
+ * Stores the details of a magazine.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
