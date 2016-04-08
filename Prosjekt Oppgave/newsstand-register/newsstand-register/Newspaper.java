@@ -1,10 +1,12 @@
 /**
+ * This class represents a Newspaper in our newsstand application.
  * Stores the details of a newspaper.
  * The title, the publisher and how often it is released.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
  */
+
 public class Newspaper extends Literature
 {
     // Holds the number of how often the newspaper is released
@@ -14,9 +16,8 @@ public class Newspaper extends Literature
      * Creates a new Newspaper.
      * @param title Title of the newspaper.
      * @param publisher Name of the publisher.
-     * @param numberPerWeek
-     * @param releaseDate
-     * each release.
+     * @param numberPerWeek How many times a week it is released.
+     * @param releaseDate The release date.
      */
     public Newspaper(String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -35,8 +36,8 @@ public class Newspaper extends Literature
     }
 
     /**
-     * 
-     * @return 
+     * Buids up a string that describes each newspaper.
+     * @return Returns all the details of the newspapers.
      */
     @Override
     public String getLongDescription()

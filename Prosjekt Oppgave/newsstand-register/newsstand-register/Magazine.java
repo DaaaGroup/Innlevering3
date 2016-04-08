@@ -14,8 +14,8 @@ public class Magazine extends Literature
      * Creates a new magazine.
      * @param title Title of the magazine.
      * @param publisher Name of the publisher.
-     * @param numberPerWeek
-     * @param releaseDate
+     * @param numberPerWeek How many times a week it is released.
+     * @param releaseDate The release date.
      */
     public Magazine (String title, String publisher, int numberPerWeek, String releaseDate)
     {

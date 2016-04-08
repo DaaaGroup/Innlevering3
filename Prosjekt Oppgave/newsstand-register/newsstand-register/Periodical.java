@@ -7,7 +7,7 @@
 
 public class Periodical extends Literature
 {
-    // Holds the number of how often the newspaper is released
+    // Holds the number of how often the Periodical is released
     private final int numberPerWeek;
     
 
