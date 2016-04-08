@@ -1,14 +1,11 @@
 #BlueJ class context
-comment0.params=title\ publisher\ every\ releaseDate\ daysWeeksMonths
-comment0.target=Newspaper(java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
-comment0.text=\r\n\ Creates\ a\ new\ Newspaper.\r\n\ @param\ title\ Title\ of\ the\ newspaper.\r\n\ @param\ publisher\ Name\ of\ the\ publisher.\r\n\ @param\ every\ How\ often\ the\ newspaper\ is\ released.\r\n\ @param\ releaseDate\r\n\ @param\ daysWeeksMonths\ Specified\ how\ many\ days,\ weeks\ or\ months\ there\ is\ between\ \r\n\ each\ release.\r\n
+comment0.params=title\ publisher\ numberPerWeek\ releaseDate
+comment0.target=Newspaper(java.lang.String,\ java.lang.String,\ int,\ java.lang.String)
+comment0.text=\r\n\ Creates\ a\ new\ Newspaper.\r\n\ @param\ title\ Title\ of\ the\ newspaper.\r\n\ @param\ publisher\ Name\ of\ the\ publisher.\r\n\ @param\ numberPerWeek\ How\ many\ releases\ there\ are\ per\ week.\r\n\ @param\ releaseDate\ The\ release\ date\r\n
 comment1.params=
-comment1.target=int\ getEvery()
+comment1.target=int\ getNumberPerWeek()
 comment1.text=\r\n\ How\ often\ the\ newspaper\ is\ released.\r\n\ @return\ How\ often\ the\ newspaper\ is\ released.\r\n
 comment2.params=
-comment2.target=java.lang.String\ getDaysWeeksMonths()
-comment2.text=\r\n\ Returns\ specifically\ how\ often\ the\ newspaper\ is\ released\ in\ days,\ weeks\ or\ months.\r\n\ @return\ Specifies\ how\ often\ the\ newspaper\ is\ released\ in\ days,\ weeks\ or\ months.\r\n
-comment3.params=
-comment3.target=java.lang.String\ getLongDescription()
-comment3.text=\ \ \ \ public\ String\ getLongDescription()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ String\ returnString\ \=\ "";\r\n\ \ \ \ \ \ \ \ returnString\ +\=\ getEvery()\ +\ getDaysWeeksMonths();\r\n\ \ \ \ \ \ \ \ return\ returnString;\r\n}
-numComments=4
+comment2.target=java.lang.String\ getLongDescription()
+comment2.text=\r\n\ Gets\ all\ the\ information\ about\ the\ newspaper.\ The\ serial\ number,\ \r\n\ the\ title,\ the\ publisher,\ how\ many\ releases\ per\ week\ and\ the\ release\ date\ \r\n\ and\ stores\ it\ in\ a\ String.\r\n\ \r\n\ @return\ newspaperDetails\ A\ String\ wirh\ all\ the\ information\ about\ the\ newspaper.\r\n
+numComments=3
