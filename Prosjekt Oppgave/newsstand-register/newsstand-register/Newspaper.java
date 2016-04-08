@@ -1,6 +1,6 @@
 /**
  * Stores the details of a newspaper.
- * Keeps track of how many releases there are per week.
+ * The title, the publisher and how often it is released.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
@@ -14,8 +14,9 @@ public class Newspaper extends Literature
      * Creates a new Newspaper.
      * @param title Title of the newspaper.
      * @param publisher Name of the publisher.
-     * @param numberPerWeek How many releases there are per week.
-     * @param releaseDate The release date
+     * @param numberPerWeek
+     * @param releaseDate
+     * each release.
      */
     public Newspaper(String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -33,12 +34,6 @@ public class Newspaper extends Literature
         return this.numberPerWeek;
     }
 
-    /**
-     * the title, the publisher, how many releases per week and the release date 
-     * and stores it in a String.
-     * 
-     * @return newspaperDetails A String wirh all the information about the newspaper.
-     */
     @Override
     public String getLongDescription()
     {
