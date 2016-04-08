@@ -16,7 +16,7 @@ public abstract class Literature
     private String publisher;
     // When released
     private String releaseDate;
-    //The serial number of the product
+    // The serial number of the product
     private final int NUMBER;
     // Number of the product
     private static int numberOfProduct = 1;

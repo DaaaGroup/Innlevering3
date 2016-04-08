@@ -8,9 +8,7 @@
 public class Newspaper extends Literature
 {
     // Holds the number of how often the newspaper is released
-    private int numberPerWeek;
-    // Spesifies how many days, weeks, or months there is between each release.
-    private String daysWeeksMonths;
+    private final int numberPerWeek;
 
     /**
      * Creates a new Newspaper.
@@ -31,18 +29,9 @@ public class Newspaper extends Literature
      * How often the newspaper is released.
      * @return How often the newspaper is released.
      */
-    public int getEvery()
+    public int getNumberPerWeek()
     {
         return this.numberPerWeek;
-    }
-
-    /**
-     * Returns specifically how often the newspaper is released in days, weeks or months.
-     * @return Specifies how often the newspaper is released in days, weeks or months.
-     */
-    public String getDaysWeeksMonths()
-    {
-        return this.daysWeeksMonths;
     }
 
     @Override
@@ -53,7 +42,8 @@ public class Newspaper extends Literature
         newspaperDetails += "\n### NEWSPAPER " + getSerialNumber() + " ###";
         newspaperDetails += "\nTitle: " + getTitle();
         newspaperDetails += "\nPublisher: " + getPublisher();
-        newspaperDetails += "\nReleases every: " + getEvery() + " " + getDaysWeeksMonths();
+        newspaperDetails += "\nReleases " + numberPerWeek + " times per week";
+        newspaperDetails += "\nIssue released: " + getReleaseDate() + "\n";
         return newspaperDetails;
     }
 }

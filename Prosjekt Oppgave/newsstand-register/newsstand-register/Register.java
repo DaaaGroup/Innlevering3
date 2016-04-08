@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 /**
  * This class is a register that represents the offers of reading material that the
  * newsstand has available at any time.
@@ -10,7 +13,7 @@
 
 public class Register
 {
-    private Inventory inventory;
+    private final Inventory inventory;
 
     /**
      * Creates a new register object with an array list of newspapers.
@@ -26,8 +29,6 @@ public class Register
      * @param publisher Name of the publisher.
      * @param numberPerWeek     How often the newspaper is released.
      * @param releaseDate
-     * @param daysWeeksMonths Specified how many days, weeks or months there is between 
-     * each release.
      */
     public void addNewspaper(String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -40,12 +41,23 @@ public class Register
      * @param publisher Name of the publisher.
      * @param numberPerWeek     How often the magazine is released.
      * @param releaseDate
-     * @param daysWeeksMonths Specified how many days, weeks or months there is between 
-     * each release.
      */
     public void addMagazine(String title, String publisher, int numberPerWeek, String releaseDate)
     {
         inventory.addNewMagazine(title, publisher, numberPerWeek, releaseDate);
+    }
+    
+    /**
+     * Creates a new Book.
+     * @param title     Title of the magazine.
+     * @param author
+     * @param publisher Name of the publisher.
+     * @param belongsToBookSeries
+     * @param releaseDate
+     */
+    public void addBook(String title, String author, String publisher, String releaseDate, boolean belongsToBookSeries)
+    {
+        inventory.addNewBook(title, author, publisher, releaseDate, belongsToBookSeries);
     }
 
     /**
@@ -65,9 +77,50 @@ public class Register
     /**
      * Removes a specified newspaper from the register.
      * @param serialNumber The number of the newspaper you wish to remove.
+     * @return 
      */
-    public boolean removeNewspaper(int serialNumber)
+    public boolean removeItem(int serialNumber)
     {
         return inventory.removeItem(serialNumber);
+    }
+    
+    /**
+     * 
+     * @param className
+     * @return 
+     */
+    public ArrayList<Literature> returnListOfItems(String className)
+    {
+        ArrayList<Literature> matchingItems = new ArrayList<>();
+        switch (className) {
+            case "books":
+                for( Literature literature : inventory.returnListOfBooks()) {
+                    matchingItems.add(literature);
+                }   break;
+            case "bookseries":
+                for( Literature literature : inventory.returnListOfBookSeries()) {
+                    matchingItems.add(literature);
+                }   break;
+            case "magazine":
+                for( Literature literature : inventory.returnListOfMagazine()) {
+                    matchingItems.add(literature);
+                }   break;
+            case "newspaper":
+                for( Literature literature : inventory.returnListOfNewspaper()) {
+                    matchingItems.add(literature);
+                }   break;
+            default:
+                break;
+        }
+        return matchingItems;
+    }
+    
+    /**
+     * 
+     * @param menuSelection 
+     */
+    public void convertBook(int menuSelection)
+    {
+        inventory.convertBook(menuSelection);
     }
 }
