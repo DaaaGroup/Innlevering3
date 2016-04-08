@@ -41,48 +41,55 @@ public class NewspaperTest
     public void tearDown()
     {
     }
-
+    
+    
+    
     /**
      * Positive test.
      * Tests that the title of the newspaper is added correctly.
      */
+    /*
     @Test
     public void getTitleTest()
     {
         Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals("nettavisen", newspape1.getTitle());
     }
-
+    */
     /**
      * Positive test.
      * Tests that the publisher of the newspaper is added correctly.
      */
+    /*
     @Test
     public void getPublisherTest()
     {
         Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals("nettavisen.no", newspape1.getPublisher());
     }
-
+*/
     /**
      * Positive test.
      * Tests that the amount of days between release days is added correctly.
      */
+    /*
     @Test
     public void getEveryTest()
     {
         Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertEquals(1, newspape1.getEvery());
     }
-
+*/
     /**
      * Positive test.
      * Tests that the specified time between each release in days/months/weeks is added correctly.
      */
+    /*
     @Test
     public void getDaysWeeksMonthsTest()
     {
         Newspaper newspape1 = new Newspaper("nettavisen", "nettavisen.no", 2, 1, "days");
         assertSame("days", newspape1.getDaysWeeksMonths());
     }
+    */
 }
