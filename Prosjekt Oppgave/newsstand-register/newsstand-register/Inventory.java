@@ -71,6 +71,19 @@ public class Inventory
         Newspaper newNewspaper = new Newspaper(title, publisher, numberPerWeek, releaseDate);
         literatureInStock.add(newNewspaper);
     }
+
+    /**
+     *
+     * @param title
+     * @param publisher
+     * @param numberPerWeek
+     * @param releaseDate
+     */
+    public void addNewPeriodical(String title, String publisher, int numberPerWeek, String releaseDate) 
+    {
+        Periodical newPeriodical = new Periodical(title, publisher, numberPerWeek, releaseDate);
+        literatureInStock.add(newPeriodical);
+    }
     
     /**
      * 
@@ -201,6 +214,22 @@ public class Inventory
         
         for( Literature literature : literatureInStock) {
             if( literature instanceof Newspaper ) {
+                matchingItems.add(literature);
+            }
+        }
+        return matchingItems;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public ArrayList<Literature> returnListOfPeriodical()
+    {
+        ArrayList<Literature> matchingItems = new ArrayList<>();
+        
+        for( Literature literature : literatureInStock) {
+            if( literature instanceof Periodical ) {
                 matchingItems.add(literature);
             }
         }

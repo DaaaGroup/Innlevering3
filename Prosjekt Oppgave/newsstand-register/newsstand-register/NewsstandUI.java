@@ -47,11 +47,11 @@ public class NewsstandUI
                     this.removeItemMenu();
                     break;
                     
-                    case 4:
-                    //this.searchForTitleOrPublisher(); //TODO
-                    break;
+                    /*case 4:
+                    this.searchForTitleOrPublisher(); //TODO
+                    break;*/
 
-                    case 5:
+                    case 4:
                     System.out.println("\nThank you for using our Newsstand Application v0.1. \nGoodbye!\n");
                     quit = true;
                     break;
@@ -119,6 +119,10 @@ public class NewsstandUI
                 break;
                 
                 case 5:
+                    this.registerNewPeriodical();
+                break;
+                
+                case 6:
                     back = true;
                 break;
 
@@ -139,11 +143,12 @@ public class NewsstandUI
         System.out.println("2. Convert book into bookseries");
         System.out.println("3. New magazine");
         System.out.println("4. New newspaper");
-        System.out.println("5. Go back\n");
-        System.out.println("Please choose menu item (1-5): ");
+        System.out.println("5. New periodical");
+        System.out.println("6. Go back\n");
+        System.out.println("Please choose menu item (1-6): ");
 
         int menuSelection = getInputInt();
-        if ((menuSelection < 1) || (menuSelection > 5)) {
+        if ((menuSelection < 1) || (menuSelection > 6)) {
             throw new InputMismatchException();
         }
         return menuSelection;
@@ -227,8 +232,13 @@ public class NewsstandUI
                     this.printAllFromOneClass("newspapers");
                     removeItem();
                 break;
-                
+
                 case 5:
+                    this.printAllFromOneClass("periodicals");
+                    removeItem();
+                break;
+                
+                case 6:
                     back = true;
                 break;
 
@@ -249,11 +259,12 @@ public class NewsstandUI
         System.out.println("2. Bookseries");
         System.out.println("3. Magazine");
         System.out.println("4. Newspaper");
-        System.out.println("5. Go back\n");
-        System.out.println("Please choose menu item (1-5): ");
+        System.out.println("5. Periodical");
+        System.out.println("6. Go back\n");
+        System.out.println("Please choose menu item (1-6): ");
 
         int menuSelection = getInputInt();
-        if ((menuSelection < 1) || (menuSelection > 5)) {
+        if ((menuSelection < 1) || (menuSelection > 6)) {
             throw new InputMismatchException();
         }
         return menuSelection;
@@ -397,6 +408,56 @@ public class NewsstandUI
         }
     }
     
+        /**
+     * This method registers a new newspaper to the array list.
+     * It has direct interaction with the user and will print our error messages accordingly.
+     * If the user inputs correct values for: Title, publisher & time between each release,
+     * it will add a new newspaper to the register.
+     * 
+     * If the user inputs invalid values for: Title, publisher or time between each release,
+     * the method will print out error message's saying what the user did wrong.
+     */
+    private void registerNewPeriodical()
+    { 
+        System.out.println("Please enter title");
+        String title = getInputString();
+        if(!title.equals(""))
+        {
+            System.out.println("Please enter publisher:");
+            String publisher = getInputString();
+            if(!publisher.equals(""))
+            {
+                System.out.println("Please enter how many times per week this newspaper releases:");
+                int numberPerWeek = getInputInt();
+                if(numberPerWeek > 0)
+                {
+                    System.out.println("Please enter release date:");
+                    String releaseDate = getInputString();
+                    if(!releaseDate.equals(""))
+                    {
+                        register.addPeriodical(title, publisher, numberPerWeek, releaseDate);
+                    }
+                    else
+                    {
+                        System.out.println("Some shit");
+                    }
+                }
+                else
+                {
+                    System.out.println("Try again, you tried to add a invalid or negative number.");
+                }
+            }
+            else
+            {
+                System.out.println("Try again, you forgot to add a publisher!");
+            }
+        }
+        else
+        {
+            System.out.println("Try again, you forgot to add a title!");
+        }
+    }
+    
     private void convertBookToBookSeries()
     {
         printAllFromOneClass("books");
@@ -451,6 +512,11 @@ public class NewsstandUI
             }
         }
         else if ( className.equals("newspapers") ) {
+            for( Literature literature : register.returnListOfItems(className)) {
+                stringToPrint += literature.getLongDescription();
+            }
+        }
+        else if ( className.equals("periodicals") ) {
             for( Literature literature : register.returnListOfItems(className)) {
                 stringToPrint += literature.getLongDescription();
             }

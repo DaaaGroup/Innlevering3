@@ -47,6 +47,18 @@ public class Register
         inventory.addNewMagazine(title, publisher, numberPerWeek, releaseDate);
     }
     
+        /**
+     * Creates a new Magazine.
+     * @param title     Title of the magazine.
+     * @param publisher Name of the publisher.
+     * @param numberPerWeek     How often the magazine is released.
+     * @param releaseDate
+     */
+    public void addPeriodical(String title, String publisher, int numberPerWeek, String releaseDate)
+    {
+        inventory.addNewPeriodical(title, publisher, numberPerWeek, releaseDate);
+    }
+    
     /**
      * Creates a new Book.
      * @param title     Title of the magazine.
@@ -101,12 +113,16 @@ public class Register
                 for( Literature literature : inventory.returnListOfBookSeries()) {
                     matchingItems.add(literature);
                 }   break;
-            case "magazine":
+            case "magazines":
                 for( Literature literature : inventory.returnListOfMagazine()) {
                     matchingItems.add(literature);
                 }   break;
-            case "newspaper":
+            case "newspapers":
                 for( Literature literature : inventory.returnListOfNewspaper()) {
+                    matchingItems.add(literature);
+                }   break;
+            case "periodicals":
+                for( Literature literature : inventory.returnListOfPeriodical()) {
                     matchingItems.add(literature);
                 }   break;
             default:
