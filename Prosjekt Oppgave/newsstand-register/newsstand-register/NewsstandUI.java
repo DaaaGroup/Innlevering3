@@ -163,7 +163,10 @@ public class NewsstandUI
     }
     
     /**
-     * 
+     * This method works together with the "showRemoveItemMenu()" method.
+     * It holds the different cases which are specified in the menu,
+     * and waits for a user to input a value between 1-6,
+     * depending on what actions the user wants to take.
      */
     private void removeItemMenu()
     {
@@ -235,7 +238,13 @@ public class NewsstandUI
     }
     
     /**
+     * This method takes in the information needed to register a new book.
+     * It has direct interaction with the user and will print out error messages accordingly.
+     * If the user inputs correct values for: Title, author, publisher & releasedate,
+     * it will relay the information to the addBook() method in the register.
      * 
+     * If the user inputs invalid values for: Title, author, publisher & releasedate,
+     * the method will print out error message's saying what the user did wrong.
      */
     private void registerNewBook(boolean belongsToBookSeries)
     { 
@@ -279,7 +288,13 @@ public class NewsstandUI
     }
     
     /**
+     * This method takes in the information needed to register a new magazine.
+     * It has direct interaction with the user and will print out error messages accordingly.
+     * If the user inputs correct values for: Title, publisher, number of releases per week & release date,
+     * it will relay the information to the addMagazine() method in the register.
      * 
+     * If the user inputs invalid values for: Title, publisher, number of releases per week & release date,
+     * the method will print out error message's saying what the user did wrong.
      */
     private void registerNewMagazine()
     { 
@@ -323,12 +338,12 @@ public class NewsstandUI
     }
 
     /**
-     * This method registers a new newspaper to the array list.
-     * It has direct interaction with the user and will print our error messages accordingly.
-     * If the user inputs correct values for: Title, publisher & time between each release,
-     * it will add a new newspaper to the register.
+     * This method takes in the information needed to register a new Newspaper.
+     * It has direct interaction with the user and will print out error messages accordingly.
+     * If the user inputs correct values for: Title, publisher, number of releases per week & release date,
+     * it will relay the information to the addNewspaper() method in the register.
      * 
-     * If the user inputs invalid values for: Title, publisher or time between each release,
+     * If the user inputs invalid values for: Title, publisher, number of releases per week & release date,
      * the method will print out error message's saying what the user did wrong.
      */
     private void registerNewNewspaper()
@@ -373,12 +388,12 @@ public class NewsstandUI
     }
     
         /**
-     * This method registers a new newspaper to the array list.
+     * This method takes in the information needed to register a new Periodical.
      * It has direct interaction with the user and will print our error messages accordingly.
-     * If the user inputs correct values for: Title, publisher & time between each release,
-     * it will add a new newspaper to the register.
+     * If the user inputs correct values for: Title, publisher, number of releases per week & release date,
+     * it will relay the information to the addPeriodical() method in the register.
      * 
-     * If the user inputs invalid values for: Title, publisher or time between each release,
+     * If the user inputs invalid values for: Title, publisher, number of releases per week & release date,
      * the method will print out error message's saying what the user did wrong.
      */
     private void registerNewPeriodical()
@@ -423,7 +438,8 @@ public class NewsstandUI
     }
     
     /**
-     * 
+     * This method is responsible for executing the steps required to convert a
+     * book into a bookseries.
      */
     private void convertBookToBookSeries()
     {
@@ -435,7 +451,7 @@ public class NewsstandUI
     }
     
     /**
-     * Waits for the user to specify which newspaper he/she wants to remove from the registry.
+     * Waits for the user to specify which newspaper he/she wants to remove from the register.
      * Prints out a message if the newspaper was successfully removed.
      * Prints out an error message if the newspaper doesn't exist.
      */
@@ -460,6 +476,12 @@ public class NewsstandUI
         }
     }
     
+    /**
+     * Depending on what type of literature you want to get information about
+     * this method builds up a string describing all items of that type.
+     * 
+     * @param className name of the type of literature you want to print information about
+     */
     private void printAllFromOneClass(String className)
     {
         String stringToPrint = "";
