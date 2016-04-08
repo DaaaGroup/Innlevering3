@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=title\ publisher\ releaseDate
+comment0.target=BookSeries(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ \r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ releaseDate\r\n
+comment1.params=
+comment1.target=java.lang.String\ getLongDescription()
+comment2.params=newBook
+comment2.target=void\ addNewBook(Book)
+numComments=3

@@ -1,5 +1,3 @@
-
-
 /**
  * Represents the different littatures.
  * The litteratures have following details:
@@ -22,10 +20,10 @@ public abstract class Literature
     private static int numberOfProduct = 1;
 
     /**
-     * Constructor for objects of class Literature
-     * @param title
-     * @param publisher
-     * @param releaseDate
+     * Constructor for objects of class Literature.
+     * @param title The title of the literature.
+     * @param publisher The publisher of the literature.
+     * @param releaseDate The release date of the literature.
      */
     public Literature(String title, String publisher, String releaseDate)
     {
@@ -64,10 +62,18 @@ public abstract class Literature
         return this.publisher;
     }
     
+    /**
+     * Returns the release date.
+     * @return Returns the release date.
+     */
     public String getReleaseDate()
     {
         return this.releaseDate;
     }
     
+    /**
+     * This is an abstract method that you overwrite in the sub-class
+     * @return Returns the details of an object.
+     */
     public abstract String getLongDescription();
 }

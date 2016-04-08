@@ -1,6 +1,5 @@
-
 /**
- * Write a description of class Magazine here.
+ * This class represents a Periodical in our newsstand application.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
@@ -13,11 +12,11 @@ public class Periodical extends Literature
     
 
     /**
-     * Creates a new magazine.
-     * @param title Title of the magazine.
+     * Creates a new periodical.
+     * @param title Title of the periodical.
      * @param publisher Name of the publisher.
-     * @param numberPerWeek
-     * @param releaseDate
+     * @param numberPerWeek How many times a week it is released.
+     * @param releaseDate The release date.
      */
     public Periodical (String title, String publisher, int numberPerWeek, String releaseDate)
     {
@@ -26,6 +25,10 @@ public class Periodical extends Literature
    
     }
 
+    /**
+     * Buids up a string that describes each periodical.
+     * @return Returns all the details of the periodicals.
+     */
     @Override
     public String getLongDescription()
     {

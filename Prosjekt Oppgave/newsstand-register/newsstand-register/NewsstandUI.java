@@ -8,21 +8,22 @@ import java.util.Scanner;
  */
 public class NewsstandUI
 {
-    //
+    // Creates a field to hold a register
     private Register register = null;
 
     /**
-     * Creates a new Newsstand user interface of the class Register.
+     * Creates a new Newsstand user interface.
      */
     public NewsstandUI()
     {
+        // Initializes a register to handle the business side of things.
         this.register = new Register();
     }
 
     /**
      * This method works together with the "showMenu()" method.
      * It holds the different cases which are specified in the menu,
-     * and waits for a user to input a value between 1-5,
+     * and waits for a user to input a value between 1-4,
      * depending on what actions the user wants to take.
      */
     void start()
@@ -92,7 +93,10 @@ public class NewsstandUI
     }
     
     /**
-     * 
+     * This method works together with the "showNewItemMenu()" method.
+     * It holds the different cases which are specified in the menu,
+     * and waits for a user to input a value between 1-6,
+     * depending on what actions the user wants to take.
      */
     private void addNewItemMenu()
     {
@@ -132,8 +136,12 @@ public class NewsstandUI
     }
     
     /**
-     * 
-     * @return
+     * Displays the menu to the user, and waits for the users input. The user is
+     * expected to input an integer between 1 and 6. If the user inputs anything
+     * else, an InputMismatchException is thrown. The method returns the valid
+     * input from the user.
+     *
+     * @return the menu number (between 1 and 5) provided by the user.
      * @throws InputMismatchException 
      */
     private int showNewItemMenu() throws InputMismatchException
@@ -149,54 +157,6 @@ public class NewsstandUI
 
         int menuSelection = getInputInt();
         if ((menuSelection < 1) || (menuSelection > 6)) {
-            throw new InputMismatchException();
-        }
-        return menuSelection;
-    }
-    
-    /**
-     * 
-     */
-    private void newBookSeriesMenu()
-    {
-        boolean back = false;
-        while(!back) {
-            int menuSelection = this.showNewBookSeriesMenu();
-            switch(menuSelection) {
-                
-                case 1:
-                    //this.registerNewBook();
-                    //periodical.addNewBook(this.registerNewBook())
-                    break;
-                
-                case 2:
-                    //this.registerNewBookSeries();
-                    break;
-                
-                case 3:
-                    back = true;
-                    break;
-                
-                default:
-            }
-        }
-    }
-    
-    /**
-     * 
-     * @return
-     * @throws InputMismatchException 
-     */   
-    private int showNewBookSeriesMenu() throws InputMismatchException
-    {
-        System.out.println("\n**** Add new books to bookseries ****\n");
-        System.out.println("1. Add book");
-        System.out.println("2. Finish");
-        System.out.println("3. Go back");
-        System.out.println("Please choose menu item (1-3): ");
-
-        int menuSelection = getInputInt();
-        if ((menuSelection < 1) || (menuSelection > 3)) {
             throw new InputMismatchException();
         }
         return menuSelection;
@@ -248,8 +208,12 @@ public class NewsstandUI
     }
     
     /**
-     * 
-     * @return
+     * Displays the menu to the user, and waits for the users input. The user is
+     * expected to input an integer between 1 and 6. If the user inputs anything
+     * else, an InputMismatchException is thrown. The method returns the valid
+     * input from the user.
+     *
+     * @return the menu number (between 1 and 6) provided by the user.
      * @throws InputMismatchException 
      */
     private int showRemoveItemMenu() throws InputMismatchException
@@ -458,6 +422,9 @@ public class NewsstandUI
         }
     }
     
+    /**
+     * 
+     */
     private void convertBookToBookSeries()
     {
         printAllFromOneClass("books");
