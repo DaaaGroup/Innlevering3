@@ -1,6 +1,6 @@
 /**
  * This class represents a Periodical in our newsstand application.
- * Stores the details of a Periodical.
+ * Stores the details of a periodical.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
