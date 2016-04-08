@@ -26,14 +26,18 @@ public class Newspaper extends Literature
     }
 
     /**
-     * How often the newspaper is released.
-     * @return How often the newspaper is released.
+     * Returns how often the newspaper is released.
+     * @return Returns how often the newspaper is released.
      */
     public int getNumberPerWeek()
     {
         return this.numberPerWeek;
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getLongDescription()
     {

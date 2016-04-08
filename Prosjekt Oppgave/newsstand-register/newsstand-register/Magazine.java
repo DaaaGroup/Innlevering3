@@ -1,6 +1,5 @@
-
 /**
- * Write a description of class Magazine here.
+ * This class represents a Magazine in our newsstand application.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
  * @version 0.1
@@ -25,6 +24,10 @@ public class Magazine extends Literature
    
     }
 
+    /**
+     * Buids up a string that describes each magazine.
+     * @return Returns all the details of the magazines.
+     */
     @Override
     public String getLongDescription()
     {
