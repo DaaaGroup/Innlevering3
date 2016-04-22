@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -15,6 +16,8 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -36,6 +39,11 @@ public class Main extends Application
     Stage window;
     Register register = new Register();
     private ObservableList<Literature> literatures;
+    
+    private ComboBox<Object> comboBox;
+    private ComboBox<Object> comboBox2;
+    
+    TreeView<String> tree;
     
     /**
      * Main method
@@ -90,9 +98,6 @@ public class Main extends Application
         primaryStage.setTitle("Newsstand Application");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
- 
-
 
     }
 
@@ -147,13 +152,73 @@ public class Main extends Application
         Button removeItem = new Button("Remove");
         //Button exitApp = new Button("Exit");
 
+        // Tree Menu
+        TreeItem<String> root, bucky, megan;
+        
+        // Branch 1
+        root = new TreeItem<>();
+        root.setExpanded(true);
+        
+        // Branch 2
+        bucky = makeBranch("Megan", root);
+        makeBranch("yoloham", bucky);
+        makeBranch("niglet", bucky);
+        makeBranch("wtf bræh", bucky);
+        
+        // Branch 3
+        megan = makeBranch("Megan", root);
+        makeBranch("what", megan);
+        makeBranch("omg", megan);
+        makeBranch("shijiet", megan);
+        
+        // Create Tree
+        tree = new TreeView<>(root);
+        tree.setShowRoot(false);
+        
+       /* // Combo Box 1
+        comboBox = new ComboBox<>();
+        comboBox.getItems().addAll("Newspaper", "Magazine","Periodical","Book","Book Series");
+        comboBox.setPromptText("Choose type");
+        comboBox.setOnAction(e -> System.out.println("registerNewspaper() has been called"));
+        // Combo Box 2
+        comboBox2 = new ComboBox<>();
+        comboBox2.getItems().addAll("Newspaper", "Magazine","Periodical","Book","Book Series");
+        comboBox2.setPromptText("Choose type");
+        comboBox2.setOnAction(e -> System.out.println("registerNewspaper() has been called"));
+        */
         // Event Handling for buttons        
         //sexitApp.setOnAction(e -> closeProgram());
 
         //Add the Buttons to the ToolBar.
-        toolBar.getItems().addAll(registerItem, removeItem);
+        toolBar.getItems().addAll(tree);
         return toolBar;
     }
+    
+    /**
+     * Create Branches
+     * @param title
+     * @param parent
+     * @return 
+     */
+    public TreeItem<String> makeBranch(String title, TreeItem<String> parent){
+        TreeItem<String> item = new TreeItem<>(title);
+        item.setExpanded(false);
+        parent.getChildren().add(item);
+        return item;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      /**
      * Creates the StatusBar to be displayed at the bottom of the window.
      *
