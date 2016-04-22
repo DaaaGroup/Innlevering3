@@ -19,6 +19,10 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -79,15 +83,16 @@ public class Main extends Application
         BorderPane borderPane = new BorderPane();
         VBox topContainer = new VBox();
         MenuBar mainMenu = createMenus();
-        ToolBar toolBar = createToolBar();
+        VBox scaryVBox = new VBox (createTree());
         
         topContainer.getChildren().add(mainMenu);
-        topContainer.getChildren().add(toolBar);
+        topContainer.getChildren().add(scaryVBox);
         
         // Set the topContainer in the top of the borderpane
         borderPane.setTop(topContainer);
-        borderPane.setLeft(toolBar);
-        toolBar.setOrientation(Orientation.VERTICAL);
+        borderPane.setLeft(scaryVBox);
+        //toolBar.setOrientation(Orientation.VERTICAL);
+        
         
         borderPane.setCenter(createCentreContent());
         
@@ -138,60 +143,53 @@ public class Main extends Application
         return menuBar;
     }
     
-    /**
-     * Creates the ToolBar to be displayed below the Menus.
-     *
-     * @return the tool bar to be displayed
-     */
-    private ToolBar createToolBar()
-    {
-        ToolBar toolBar = new ToolBar();
-        //Create some Buttons.
-        //Button listItem = new Button("List");
-        Button registerItem = new Button("Register");
-        Button removeItem = new Button("Remove");
-        //Button exitApp = new Button("Exit");
 
-        // Tree Menu
-        TreeItem<String> root, bucky, megan;
+    private TreeView createTree() {
+        TreeItem<String> root, registerProduct, removeProduct;
         
-        // Branch 1
+        // Main
         root = new TreeItem<>();
         root.setExpanded(true);
         
-        // Branch 2
-        bucky = makeBranch("Megan", root);
-        makeBranch("yoloham", bucky);
-        makeBranch("niglet", bucky);
-        makeBranch("wtf bræh", bucky);
+        // Register branch 
+        registerProduct = makeBranch("Register", root);
+        makeBranch("Newspaper", registerProduct);
+        makeBranch("Magazine", registerProduct);
+        makeBranch("Periodical", registerProduct);
+        makeBranch("Book", registerProduct);
+        makeBranch("Book Series", registerProduct);
         
-        // Branch 3
-        megan = makeBranch("Megan", root);
-        makeBranch("what", megan);
-        makeBranch("omg", megan);
-        makeBranch("shijiet", megan);
-        
+        // Remove branch 
+        removeProduct = makeBranch("Remove", root);
+        makeBranch("Newspaper", removeProduct);
+        makeBranch("Magazine", removeProduct);
+        makeBranch("Periodical", removeProduct);
+        makeBranch("Book", removeProduct);
+        makeBranch("Book Series", removeProduct);
+            
         // Create Tree
         tree = new TreeView<>(root);
         tree.setShowRoot(false);
+        tree.setPrefWidth(115);
         
-       /* // Combo Box 1
-        comboBox = new ComboBox<>();
-        comboBox.getItems().addAll("Newspaper", "Magazine","Periodical","Book","Book Series");
-        comboBox.setPromptText("Choose type");
-        comboBox.setOnAction(e -> System.out.println("registerNewspaper() has been called"));
-        // Combo Box 2
-        comboBox2 = new ComboBox<>();
-        comboBox2.getItems().addAll("Newspaper", "Magazine","Periodical","Book","Book Series");
-        comboBox2.setPromptText("Choose type");
-        comboBox2.setOnAction(e -> System.out.println("registerNewspaper() has been called"));
-        */
-        // Event Handling for buttons        
-        //sexitApp.setOnAction(e -> closeProgram());
-
-        //Add the Buttons to the ToolBar.
-        toolBar.getItems().addAll(tree);
-        return toolBar;
+        // ENTER KEY
+        tree.setOnKeyPressed((KeyEvent ke) -> {
+            if(ke.getCode().equals(KeyCode.ENTER))
+            {
+                System.out.println("GJ");
+            }
+        });
+        
+        // DOUBLE CLICK
+        tree.setOnMouseClicked((MouseEvent mouseEvent) -> {
+            if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+                if(mouseEvent.getClickCount() == 2){
+                    System.out.println("registerNewspaper() has been called");
+                    
+                }
+            }
+        });
+        return tree;
     }
     
     /**
@@ -207,18 +205,7 @@ public class Main extends Application
         return item;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
      /**
      * Creates the StatusBar to be displayed at the bottom of the window.
      *
@@ -283,7 +270,7 @@ public class Main extends Application
 
     /**
      * Updates the ObservableArray wrapper with the current content in the
-     * Literature register. Call this method whenever changes are made to the
+ Literature registerProduct. Call this method whenever changes are made to the
      * underlying LiteratureRegister.
      */
     private void updateObservableList()
