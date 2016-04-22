@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
@@ -33,7 +35,8 @@ public class Main extends Application
     Button button2;
     Stage window;
     Register register = new Register();
-
+    private ObservableList<Literature> literatures;
+    
     /**
      * Main method
      * @param args
@@ -193,10 +196,33 @@ public class Main extends Application
         publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 
         tableView = new TableView();
-        tableView.setItems(register.returnAllInventory());
+        tableView.setItems(this.getLiteratureList());
         tableView.getColumns().addAll(titleColumn, publisherColumn);
 
         vbox.getChildren().add(tableView);
         return vbox;
+    }
+    
+    /**
+     * Returns an ObservableList holding the literatures to display.
+     *
+     * @return an ObservableList holding the literatures to display.
+     */
+    private ObservableList<Literature> getLiteratureList()
+    {
+        // Create an ObservableArrayList wrapping the LiteratureRegister
+        literatures
+                = FXCollections.observableArrayList(this.register.returnAllInventory());
+        return literatures;
+    }
+
+    /**
+     * Updates the ObservableArray wrapper with the current content in the
+     * Literature register. Call this method whenever changes are made to the
+     * underlying LiteratureRegister.
+     */
+    private void updateObservableList()
+    {
+        this.literatures.setAll(this.register.returnAllInventory());
     }
 }
