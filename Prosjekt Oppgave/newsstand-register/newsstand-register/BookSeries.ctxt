@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.params=title\ publisher\ releaseDate
 comment0.target=BookSeries(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment0.text=\r\n\ \r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ releaseDate\r\n
+comment0.text=\r\n\ Uses\ the\ super\ call\ to\ get\ the\ fields\ from\ the\ super\ class\:\ Literature.\r\n\ Creates\ the\ information\ that\ the\ BookSeries\ object\ needs.\ \r\n\r\n\r\n\ @param\ title\ The\ title\ of\ the\ book\ series.\r\n\ @param\ publisher\ The\ publisher\ of\ the\ book\ series.\r\n\ @param\ releaseDate\ The\ date\ when\ the\ book\ series\ is\ released.\r\n
 comment1.params=
 comment1.target=java.lang.String\ getLongDescription()
-comment2.params=newBook
-comment2.target=void\ addNewBook(Book)
-numComments=3
+comment1.text=\r\n\r\n\ Prints\ out\ the\ information\ of\ the\ book\ series.\r\n\r\n\ @return\ Return\ the\ details\ of\ the\ book\ series.\ \r\n\ Such\ as\ the\ serial\ number,\ the\ title,\ publisher\ and\ the\ release\ date.\r\n\r\n
+numComments=2

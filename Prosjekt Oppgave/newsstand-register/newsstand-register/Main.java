@@ -8,6 +8,7 @@ public class Main
 {
     /**
      * Creates a new newsstand and starts the application.
+     * @param args
      */
     public static void main(String[] args)
     {
