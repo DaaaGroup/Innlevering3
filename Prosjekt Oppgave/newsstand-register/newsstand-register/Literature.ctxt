@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=title\ publisher\ releaseDate
 comment0.target=Literature(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Literature\r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ releaseDate\r\n
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Literature.\r\n\ @param\ title\ The\ title\ of\ the\ literature.\r\n\ @param\ publisher\ The\ publisher\ of\ the\ literature.\r\n\ @param\ releaseDate\ The\ release\ date\ of\ the\ literature.\r\n
 comment1.params=
 comment1.target=int\ getSerialNumber()
 comment1.text=\r\n\ Returns\ the\ newspaper's\ serial\ number.\r\n\ @return\ Returns\ the\ newspaper's\ serial\ number.\r\n
@@ -13,6 +13,8 @@ comment3.target=java.lang.String\ getPublisher()
 comment3.text=\r\n\ Returns\ the\ name\ of\ the\ publisher.\r\n\ @return\ Returns\ the\ name\ of\ the\ publisher.\r\n
 comment4.params=
 comment4.target=java.lang.String\ getReleaseDate()
+comment4.text=\r\n\ Returns\ the\ release\ date.\r\n\ @return\ Returns\ the\ release\ date.\r\n
 comment5.params=
 comment5.target=java.lang.String\ getLongDescription()
+comment5.text=\r\n\ This\ is\ an\ abstract\ method\ that\ you\ overwrite\ in\ the\ sub-class\r\n\ @return\ Returns\ the\ details\ of\ an\ object.\r\n
 numComments=6

@@ -1,11 +1,8 @@
 #BlueJ class context
-comment0.params=title\ author\ publisher\ releaseDate\ belongsToPeriodical
-comment0.target=Book(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean)
-comment0.text=\r\n\r\n\ @param\ title\r\n\ @param\ publisher\r\n\ @param\ every\r\n\ @param\ releaseDate\r\n\ @param\ daysWeeksMonths\r\n
+comment0.params=title\ author\ publisher\ releaseDate
+comment0.target=Book(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\r\n\ Uses\ the\ super\ call\ to\ get\ the\ fields\ from\ the\ super\ class\:\ Literature.\r\n\ Creates\ the\ information\ that\ the\ Book\ object\ needs.\ \r\n\ \r\n\ @param\ title\ The\ title\ of\ the\ book.\r\n\ @param\ author\ The\ author\ of\ the\ book.\r\n\ @param\ publisher\ The\ publisher\ of\ the\ book.\r\n\ @param\ releaseDate\ The\ release\ date\ of\ the\ book.\r\n
 comment1.params=
-comment1.target=boolean\ getBelongsToPeriodical()
-comment2.params=
-comment2.target=java.lang.String\ getLongDescription()
-comment3.params=
-comment3.target=java.lang.String\ getLongDescriptionBookSeries()
-numComments=4
+comment1.target=java.lang.String\ getLongDescription()
+comment1.text=\r\n\ \r\n\ Prints\ out\ the\ information\ of\ the\ book.\r\n\ \r\n\ @return\ Return\ the\ details\ of\ the\ book.\ Such\ as\ the\ serial\ number\r\n\ ,the\ title,\ publisher\ and\ the\ release\ date.\r\n
+numComments=2
