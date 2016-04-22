@@ -32,6 +32,7 @@ public class Main extends Application
     Button button;
     Button button2;
     Stage window;
+    Register register = new Register();
 
     /**
      * Main method
@@ -192,7 +193,7 @@ public class Main extends Application
         publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 
         tableView = new TableView();
-        tableView.setItems(this.getLiteratureList());
+        tableView.setItems(register.returnAllInventory());
         tableView.getColumns().addAll(titleColumn, publisherColumn);
 
         vbox.getChildren().add(tableView);

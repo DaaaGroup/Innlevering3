@@ -81,6 +81,11 @@ public class Register {
         }
         return returnString;
     }
+    
+    public ArrayList<Literature> returnAllInventory()
+    {
+        return inventory.returnAllInventory();
+    }
 
     /**
      * Removes a specified literature from the register.

@@ -111,6 +111,11 @@ public class Inventory
         return literatureDetails;
     }
     
+    public ArrayList<Literature> returnAllInventory()
+    {
+        return literatureInStock;
+    }
+    
     /**
      * Takes the serial number of an item (which is unique) and uses that to
      * remove said item from the inventory.
