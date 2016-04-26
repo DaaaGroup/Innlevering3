@@ -66,6 +66,15 @@ public class Inventory
     }
     
     /**
+     * 
+     * @param literature 
+     */
+    public void addLiterature(Literature literature)
+    {
+        literatureInStock.add(literature);
+    }
+    
+    /**
      * This method is responsible for creating an object of type Newspaper and
      * add it to the inventory list.
      * 
@@ -113,7 +122,9 @@ public class Inventory
     
     public ArrayList<Literature> returnAllInventory()
     {
-        return literatureInStock;
+        ArrayList<Literature> litList = new ArrayList<>();
+        litList.addAll(literatureInStock);
+        return litList;
     }
     
     /**
@@ -280,5 +291,18 @@ public class Inventory
         String publisher = literatureInStock.get(menuSelection - 1).getPublisher();
         String releaseDate = literatureInStock.get(menuSelection - 1).getReleaseDate();
         addNewBookSeries(title, publisher, releaseDate);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public int getSize()
+    {
+        return this.literatureInStock.size();
+    }
+    
+    public void removeItem(Literature literature){
+        literatureInStock.remove(literature);
     }
 }

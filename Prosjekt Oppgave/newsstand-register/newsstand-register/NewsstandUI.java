@@ -364,7 +364,7 @@ public class NewsstandUI
                     String releaseDate = getInputString();
                     if(!releaseDate.equals(""))
                     {
-                        register.addNewspaper(title, publisher, numberPerWeek, releaseDate);
+                        register.addLiterature(new Newspaper(title, publisher, numberPerWeek, releaseDate));
                     }
                     else
                     {

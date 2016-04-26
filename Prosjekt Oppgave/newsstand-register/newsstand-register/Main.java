@@ -1,3 +1,4 @@
+import java.util.Optional;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -44,12 +45,17 @@ public class Main extends Application
     Button button2;
     Stage window;
     Register register = new Register();
+    TableView<Literature> tableView;
     private ObservableList<Literature> literatures;
-    
-    private ComboBox<Object> comboBox;
-    private ComboBox<Object> comboBox2;
-    
     TreeView<String> tree;
+        //
+    private Register litReg;
+    
+    @Override
+    public void init()
+    {
+        litReg = new Register();
+    }
     
     /**
      * Main method
@@ -75,6 +81,7 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        literatures = FXCollections.observableArrayList();
         // Close window confirmation
             primaryStage.setOnCloseRequest(e -> {
             e.consume();
@@ -166,11 +173,13 @@ public class Main extends Application
         
         // Remove branch 
         removeProduct = makeBranch("Remove", root);
+        /*
         makeBranch("Newspaper", removeProduct);
         makeBranch("Magazine", removeProduct);
         makeBranch("Periodical", removeProduct);
         makeBranch("Book", removeProduct);
         makeBranch("Book Series", removeProduct);
+        */
             
         // Create Tree
         tree = new TreeView<>(root);
@@ -227,6 +236,7 @@ public class Main extends Application
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register newspaper");
+                doAddNewspaper();
             }}
         // MAGAZINE
         if(selectedItem.getValue().equals("Magazine")){
@@ -264,10 +274,8 @@ public class Main extends Application
             {
                 System.out.println("Register Book Series");
             }}
+        updateObservableList();
     }
-    
-    
-    
     
     /**
      * Create Branches
@@ -311,7 +319,7 @@ public class Main extends Application
     private Node createCentreContent()
     {
         VBox vbox = new VBox();
-        TableView tableView;
+        
 
         // Define the columns
         // The Title-column
@@ -325,41 +333,48 @@ public class Main extends Application
         publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 
         tableView = new TableView();
-        tableView.setItems(this.getLiteratureList());
+        tableView.setItems(literatures);
         tableView.getColumns().addAll(titleColumn, publisherColumn);
-
+        
         vbox.getChildren().add(tableView);
         return vbox;
     }
     
     /**
      * Returns an ObservableList holding the literatures to display.
-     *
      * @return an ObservableList holding the literatures to display.
      */
     private ObservableList<Literature> getLiteratureList()
     {
         // Create an ObservableArrayList wrapping the LiteratureRegister
         literatures
-                = FXCollections.observableArrayList(this.register.returnAllInventory());
+                = FXCollections.observableArrayList();
         return literatures;
     }
 
     /**
      * Updates the ObservableArray wrapper with the current content in the
- Literature registerProduct. Call this method whenever changes are made to the
+       Literature registerProduct. Call this method whenever changes are made to the
      * underlying LiteratureRegister.
      */
     private void updateObservableList()
     {
-        this.literatures.setAll(this.register.returnAllInventory());
+        literatures.clear();
+        for(Literature literature : litReg.returnAllInventory()){
+            literatures.add(literature);
+        }
     }
 
+    /**
+     * 
+     * @param selectedItem 
+     */
     private void removeLiterature(TreeItem<String> selectedItem) {
        // NEWSPAPER
         if(selectedItem.getValue().equals("Newspaper")){
             if(selectedItem.getParent().getValue().equals("Remove")){
                 System.out.println("Remove newspaper");
+                litReg.removeItem(tableView.getSelectionModel().getSelectedItem());
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
@@ -401,5 +416,25 @@ public class Main extends Application
             {
                 System.out.println("Register Book Series");
             }}
+        updateObservableList();
     }
+    
+    
+// ADD NEWSPAPERYOLO
+    private void doAddNewspaper()
+    {
+        NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog();
+
+        Optional<Newspaper> result = npDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            Newspaper newspaper = result.get();
+            litReg.addLiterature(newspaper);
+            //literatures.add(newspaper);
+            //updateObservableList();
+            System.out.println("Number of items in litReg: " + litReg.getSize());
+        }
+    }
+    
 }

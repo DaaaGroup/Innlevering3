@@ -22,13 +22,20 @@ public class Register {
     /**
      * Creates a new Newspaper.
      *
-     * @param title Title of the newspaper.
-     * @param publisher Name of the publisher.
-     * @param numberPerWeek How often the newspaper is released.
-     * @param releaseDate The release date of the newspaper. 
+     * @param newspaper
      */
-    public void addNewspaper(String title, String publisher, int numberPerWeek, String releaseDate) {
-        inventory.addNewNewspaper(title, publisher, numberPerWeek, releaseDate);
+    /*public void addNewspaper(Newspaper newspaper) {
+        inventory.addNewNewspaper(newspaper);
+    }*/
+    
+    /**
+     * Creates a new Newspaper.
+     * @param literature
+     * @param newspaper
+     */
+    public void addLiterature(Literature literature)
+    {
+        inventory.addLiterature(literature);
     }
 
     /**
@@ -146,5 +153,18 @@ public class Register {
      */
     public void convertBook(int menuSelection) {
         inventory.convertBook(menuSelection);
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public int getSize()
+    {
+        return inventory.getSize();
+    }
+    
+    public void removeItem(Literature literature){
+        inventory.removeItem(literature);
     }
 }
