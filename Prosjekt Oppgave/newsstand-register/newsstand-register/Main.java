@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -119,7 +121,7 @@ public class Main extends Application
         optionMenu.getItems().add(new SeparatorMenuItem());
         optionMenu.getItems().add(testItem3);
         
-        // Add event handler
+        // Event handler
         testItem1.setOnAction((ActionEvent event) -> {
             System.out.println("insertOption1 was selected...");
         });
@@ -143,7 +145,10 @@ public class Main extends Application
         return menuBar;
     }
     
-
+    /**
+     * 
+     * @return 
+     */
     private TreeView createTree() {
         TreeItem<String> root, registerProduct, removeProduct;
         
@@ -176,21 +181,93 @@ public class Main extends Application
         tree.setOnKeyPressed((KeyEvent ke) -> {
             if(ke.getCode().equals(KeyCode.ENTER))
             {
-                System.out.println("GJ");
+                if(tree.getSelectionModel().getSelectedItem().getParent().getValue() == null)
+                {}
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Register")){
+                addLiterature(tree.getSelectionModel().getSelectedItem());
+                }
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Remove")){
+                removeLiterature(tree.getSelectionModel().getSelectedItem());
             }
+            }
+            
         });
         
         // DOUBLE CLICK
         tree.setOnMouseClicked((MouseEvent mouseEvent) -> {
             if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
-                if(mouseEvent.getClickCount() == 2){
-                    System.out.println("registerNewspaper() has been called");
-                    
+                if(mouseEvent.getClickCount() == 2)
+                {
+                if(tree.getSelectionModel().getSelectedItem().getParent().getValue() == null)
+                {}
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Register")){
+                addLiterature(tree.getSelectionModel().getSelectedItem());
                 }
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Remove")){
+                removeLiterature(tree.getSelectionModel().getSelectedItem());
+            }
+            }
+            
+            
             }
         });
         return tree;
     }
+    
+    /**
+     * 
+     * @param selectedItem 
+     */
+    private void addLiterature(TreeItem<String> selectedItem){
+        // NEWSPAPER
+        if(selectedItem.getValue().equals("Newspaper")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove newspaper");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register newspaper");
+            }}
+        // MAGAZINE
+        if(selectedItem.getValue().equals("Magazine")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Magazine");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Magazine");
+            }}
+        // PERIODICAL
+        if(selectedItem.getValue().equals("Periodical")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Periodical");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Periodical");
+            }}
+        // BOOK
+        if(selectedItem.getValue().equals("Book")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Book");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Book");
+            }}
+        // BOOK SERIES
+        if(selectedItem.getValue().equals("Book Series")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Book Series");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Book Series");
+            }}
+    }
+    
+    
+    
     
     /**
      * Create Branches
@@ -276,5 +353,53 @@ public class Main extends Application
     private void updateObservableList()
     {
         this.literatures.setAll(this.register.returnAllInventory());
+    }
+
+    private void removeLiterature(TreeItem<String> selectedItem) {
+       // NEWSPAPER
+        if(selectedItem.getValue().equals("Newspaper")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove newspaper");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register newspaper");
+            }}
+        // MAGAZINE
+        if(selectedItem.getValue().equals("Magazine")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Magazine");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Magazine");
+            }}
+        // PERIODICAL
+        if(selectedItem.getValue().equals("Periodical")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Periodical");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Periodical");
+            }}
+        // BOOK
+        if(selectedItem.getValue().equals("Book")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Book");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Book");
+            }}
+        // BOOK SERIES
+        if(selectedItem.getValue().equals("Book Series")){
+            if(selectedItem.getParent().getValue().equals("Remove")){
+                System.out.println("Remove Book Series");
+            }
+            else if(selectedItem.getParent().getValue().equals("Register"))
+            {
+                System.out.println("Register Book Series");
+            }}
     }
 }
