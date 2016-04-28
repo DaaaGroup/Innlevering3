@@ -6,7 +6,7 @@
  * 
  *
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland
- * @version 0.1,
+ * @version 0.1
  */
 public class BookSeries extends Literature {
 
@@ -19,10 +19,11 @@ public class BookSeries extends Literature {
      *
      *
      * @param title The title of the book series.
+     * @param author
      * @param publisher The publisher of the book series.
      * @param releaseDate The date when the book series is released.
      */
-    public BookSeries(String title, String publisher, String releaseDate) {
+    public BookSeries(String title, String author, String publisher, String releaseDate) {
         super(title, publisher, releaseDate);
     }
 

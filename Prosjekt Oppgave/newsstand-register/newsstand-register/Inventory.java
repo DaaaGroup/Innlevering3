@@ -30,7 +30,7 @@ public class Inventory
      */
     public void addNewBookSeries(String title, String publisher, String releaseDate)
     {
-        BookSeries newBookSeries = new BookSeries(title, publisher, releaseDate);
+        BookSeries newBookSeries = new BookSeries(title, "", publisher, releaseDate);
         literatureInStock.add(newBookSeries);
     }
     

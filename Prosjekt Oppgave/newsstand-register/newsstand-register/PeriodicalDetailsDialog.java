@@ -1,6 +1,7 @@
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -19,6 +20,13 @@ import javafx.util.Callback;
 public class PeriodicalDetailsDialog extends Dialog<Periodical>
 {
 
+    private TextField title;
+    private TextField publisher;
+    private TextField issueNoTxt;
+    private TextField releaseDate;
+    private Node loginButton;
+
+
     /**
      * Creates an instance of the MagazineDetails dialog
      */
@@ -26,26 +34,54 @@ public class PeriodicalDetailsDialog extends Dialog<Periodical>
     {
         super();
         setTitle("Periodical Details");
-
+        
+        ButtonType loginButtonType = ButtonType.OK;
         // Set the button types.
-        getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-
+        getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+        loginButton = this.getDialogPane().lookupButton(loginButtonType);
+        loginButton.setDisable(true);
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(20, 150, 10, 10));
 
-        TextField title = new TextField();
+        title = new TextField();
         title.setPromptText("Title");
 
-        TextField publisher = new TextField();
+        publisher = new TextField();
         publisher.setPromptText("Publisher");
 
-        TextField issueNoTxt = new TextField();
+        issueNoTxt = new TextField();
         issueNoTxt.setPromptText("Issue number");
 
-        TextField releaseDate = new TextField();
+        releaseDate = new TextField();
         releaseDate.setPromptText("DD/MM/YYYY");
+        
+        title.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                setButtonDisable();
+            }
+        
+        });
+        publisher.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                setButtonDisable();
+            }
+        });
+        issueNoTxt.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                setButtonDisable();
+            }
+        });
+        releaseDate.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                setButtonDisable();
+            }
+        });
         
         // Prevent characters (non-integers) to be added
         issueNoTxt.textProperty().addListener(new ChangeListener<String>()
@@ -92,5 +128,22 @@ public class PeriodicalDetailsDialog extends Dialog<Periodical>
                 return null;
             }
         });
+    }
+    private void setButtonDisable() {
+        if(!checkOkButton()){
+            loginButton.setDisable(true);
+        } else{
+            loginButton.setDisable(false);
+        }
+    }
+    
+    private boolean checkOkButton()
+    {
+        boolean isNotEmpty = true;
+        if(title.getText().equals("") || publisher.getText().equals("") || issueNoTxt.getText().equals("") || releaseDate.getText().equals(""))
+        {
+            isNotEmpty = false;
+        }
+        return isNotEmpty;
     }
 }
