@@ -1,11 +1,10 @@
-
 import java.util.ArrayList;
-
 
 /**
  * This class handles all of the literature in the inventory.
  * 
  * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
+ * @deprecated Kristoffer Martinsen
  * @version 0.1
  */
 public class Inventory

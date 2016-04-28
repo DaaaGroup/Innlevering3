@@ -48,7 +48,7 @@ public class Main extends Application
     TableView<Literature> tableView;
     private ObservableList<Literature> literatures;
     TreeView<String> tree;
-        //
+    
     private Register litReg;
     
     @Override
@@ -106,9 +106,9 @@ public class Main extends Application
         borderPane.setCenter(createCentreContent());
         
         // Status bar
-        borderPane.setBottom(createStatusBar());
+        //borderPane.setBottom(createStatusBar());
         
-        Scene scene = new Scene(borderPane, 550, 350);
+        Scene scene = new Scene(borderPane, 717, 350);
         primaryStage.setTitle("Newsstand Application");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -172,14 +172,11 @@ public class Main extends Application
         makeBranch("Book Series", registerProduct);
         
         // Remove branch 
-        removeProduct = makeBranch("Remove", root);
-        /*
-        makeBranch("Newspaper", removeProduct);
-        makeBranch("Magazine", removeProduct);
-        makeBranch("Periodical", removeProduct);
-        makeBranch("Book", removeProduct);
-        makeBranch("Book Series", removeProduct);
-        */
+        removeProduct = makeBranch("Features", root);
+        
+        makeBranch("Remove", removeProduct);
+        makeBranch("Convert book\nto series", removeProduct);
+        
             
         // Create Tree
         tree = new TreeView<>(root);
@@ -195,7 +192,7 @@ public class Main extends Application
                 else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Register")){
                 addLiterature(tree.getSelectionModel().getSelectedItem());
                 }
-                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Remove")){
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Features")){
                 removeLiterature(tree.getSelectionModel().getSelectedItem());
             }
             }
@@ -212,7 +209,7 @@ public class Main extends Application
                 else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Register")){
                 addLiterature(tree.getSelectionModel().getSelectedItem());
                 }
-                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Remove")){
+                else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Features")){
                 removeLiterature(tree.getSelectionModel().getSelectedItem());
             }
             }
@@ -230,7 +227,7 @@ public class Main extends Application
     private void addLiterature(TreeItem<String> selectedItem){
         // NEWSPAPER
         if(selectedItem.getValue().equals("Newspaper")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Remove newspaper");
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
@@ -240,39 +237,43 @@ public class Main extends Application
             }}
         // MAGAZINE
         if(selectedItem.getValue().equals("Magazine")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Remove Magazine");
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Magazine");
+                doAddMagazine();
             }}
         // PERIODICAL
         if(selectedItem.getValue().equals("Periodical")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Remove Periodical");
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Periodical");
+                doAddPeriodical();
             }}
         // BOOK
         if(selectedItem.getValue().equals("Book")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Remove Book");
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Book");
+                doAddBook();
             }}
         // BOOK SERIES
         if(selectedItem.getValue().equals("Book Series")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Remove Book Series");
             }
             else if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Book Series");
+                doAddBookSeries();
             }}
         updateObservableList();
     }
@@ -331,10 +332,15 @@ public class Main extends Application
         TableColumn<Literature, String> publisherColumn = new TableColumn<>("Publisher");
         publisherColumn.setMinWidth(200);
         publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+ 
+        // The Category-column
+        TableColumn<Literature, String> categoryColumn = new TableColumn<>("Category");
+        categoryColumn.setMinWidth(200);
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
         tableView = new TableView();
         tableView.setItems(literatures);
-        tableView.getColumns().addAll(titleColumn, publisherColumn);
+        tableView.getColumns().addAll(titleColumn, publisherColumn, categoryColumn);
         
         vbox.getChildren().add(tableView);
         return vbox;
@@ -366,61 +372,23 @@ public class Main extends Application
     }
 
     /**
-     * 
+     * Remove method 
      * @param selectedItem 
      */
     private void removeLiterature(TreeItem<String> selectedItem) {
        // NEWSPAPER
-        if(selectedItem.getValue().equals("Newspaper")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
-                System.out.println("Remove newspaper");
+        if(selectedItem.getValue().equals("Remove")){
+            if(selectedItem.getParent().getValue().equals("Features")){
+                System.out.println("Spesified literature removed");
                 litReg.removeItem(tableView.getSelectionModel().getSelectedItem());
             }
-            else if(selectedItem.getParent().getValue().equals("Register"))
-            {
-                System.out.println("Register newspaper");
-            }}
-        // MAGAZINE
-        if(selectedItem.getValue().equals("Magazine")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
-                System.out.println("Remove Magazine");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
-            {
-                System.out.println("Register Magazine");
-            }}
-        // PERIODICAL
-        if(selectedItem.getValue().equals("Periodical")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
-                System.out.println("Remove Periodical");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
-            {
-                System.out.println("Register Periodical");
-            }}
-        // BOOK
-        if(selectedItem.getValue().equals("Book")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
-                System.out.println("Remove Book");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
-            {
-                System.out.println("Register Book");
-            }}
-        // BOOK SERIES
-        if(selectedItem.getValue().equals("Book Series")){
-            if(selectedItem.getParent().getValue().equals("Remove")){
-                System.out.println("Remove Book Series");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
-            {
-                System.out.println("Register Book Series");
-            }}
         updateObservableList();
-    }
+    }}
     
     
-// ADD NEWSPAPERYOLO
+    /**
+     * Method for adding newspapers.
+     */
     private void doAddNewspaper()
     {
         NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog();
@@ -431,7 +399,78 @@ public class Main extends Application
         {
             Newspaper newspaper = result.get();
             litReg.addLiterature(newspaper);
-            //literatures.add(newspaper);
+            //updateObservableList();
+            System.out.println("Number of items in litReg: " + litReg.getSize());
+        }
+    }
+    
+    /**
+     * Method for adding magazine.
+     */
+    private void doAddMagazine()
+    {
+        MagazineDetailsDialog mgDialog = new MagazineDetailsDialog();
+
+        Optional<Magazine> result = mgDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            Magazine magazine = result.get();
+            litReg.addLiterature(magazine);
+            //updateObservableList();
+            System.out.println("Number of items in litReg: " + litReg.getSize());
+        }
+    }
+    
+    /**
+     * Method for adding periodicals
+     */
+    private void doAddPeriodical()
+    {
+        PeriodicalDetailsDialog perDialog = new PeriodicalDetailsDialog();
+
+        Optional<Periodical> result = perDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            Periodical periodical = result.get();
+            litReg.addLiterature(periodical);
+            //updateObservableList();
+            System.out.println("Number of items in litReg: " + litReg.getSize());
+        }
+    }    
+    
+    /**
+     * Method for adding periodicals
+     */
+    private void doAddBook()
+    {
+        BookDetailsDialog bookDialog = new BookDetailsDialog();
+
+        Optional<Book> result = bookDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            Book book = result.get();
+            litReg.addLiterature(book);
+            //updateObservableList();
+            System.out.println("Number of items in litReg: " + litReg.getSize());
+        }
+    }
+        
+    /**
+     * Method for adding periodicals
+     */
+    private void doAddBookSeries()
+    {
+        BookSeriesDetailsDialog bookSeriesDialog = new BookSeriesDetailsDialog();
+
+        Optional<BookSeries> result = bookSeriesDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            BookSeries bookSeries = result.get();
+            litReg.addLiterature(bookSeries);
             //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }

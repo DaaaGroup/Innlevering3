@@ -31,7 +31,6 @@ public class Register {
     /**
      * Creates a new Newspaper.
      * @param literature
-     * @param newspaper
      */
     public void addLiterature(Literature literature)
     {

@@ -9,23 +9,23 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 /**
- * A dialog used to get the necessary information about a newspaper from the
- * user, in order to be able to create a Newspaper instance to be added
+ * A dialog used to get the necessary information about a magazine from the
+ * user, in order to be able to create a Magazine instance to be added
  * to the register.
  *
  * @author asty & Oscar Wika
  */
 
-public class NewspaperDetailsDialog extends Dialog<Newspaper>
+public class BookSeriesDetailsDialog extends Dialog<BookSeries>
 {
 
     /**
-     * Creates an instance of the NewspaperDetails dialog
+     * Creates an instance of the MagazineDetails dialog
      */
-    public NewspaperDetailsDialog()
+    public BookSeriesDetailsDialog()
     {
         super();
-        setTitle("Newspaper Details");
+        setTitle("Book Details");
 
         // Set the button types.
         getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
@@ -41,14 +41,14 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         TextField publisher = new TextField();
         publisher.setPromptText("Publisher");
 
-        TextField issueNoTxt = new TextField();
-        issueNoTxt.setPromptText("Issue number");
+        TextField author = new TextField();
+        author.setPromptText("Author");
 
         TextField releaseDate = new TextField();
         releaseDate.setPromptText("DD/MM/YYYY");
         
         // Prevent characters (non-integers) to be added
-        issueNoTxt.textProperty().addListener(new ChangeListener<String>()
+        author.textProperty().addListener(new ChangeListener<String>()
         {
             @Override
             public void changed(ObservableValue<? extends String> observable,
@@ -62,7 +62,29 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
                     }
                 } catch (NumberFormatException e)
                 {
-                    issueNoTxt.setText(oldValue);
+                    author.setText(oldValue);
+                }
+            }
+        });
+
+        TextField totalNoOfIssuesTxt = new TextField();
+        totalNoOfIssuesTxt.setPromptText("Total number of issues");
+        // Prevent characters (non-integers) to be added
+        totalNoOfIssuesTxt.textProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                    String oldValue, String newValue)
+            {
+                try
+                {
+                    if (newValue.length() > 0)
+                    {
+                        Integer.parseInt(newValue);
+                    }
+                } catch (NumberFormatException e)
+                {
+                    totalNoOfIssuesTxt.setText(oldValue);
                 }
             }
         });
@@ -71,23 +93,24 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         grid.add(title, 1, 0);
         grid.add(new Label("Publisher:"), 0, 1);
         grid.add(publisher, 1, 1);
-        grid.add(new Label("Issue number:"), 0, 2);
-        grid.add(issueNoTxt, 1, 2);
+        grid.add(new Label("Author:"), 0, 2);
+        grid.add(author, 1, 2);
         grid.add(new Label("Release date:"), 0, 3);
         grid.add(releaseDate, 1, 3);
 
         getDialogPane().setContent(grid);
 
         // Convert the result to a username-password-pair when the OK button is clicked.
-        setResultConverter(new Callback<ButtonType, Newspaper>()
+        setResultConverter(new Callback<ButtonType, BookSeries>()
         {
             @Override
-            public Newspaper call(ButtonType button)
+            public BookSeries call(ButtonType button)
             {
                 if (button == ButtonType.OK)
                 {
-                    int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Newspaper(title.getText(), publisher.getText(), issueNo, releaseDate.getText());
+                    //int issueNo = Integer.parseInt(author.getText());
+                    //int totalIssues = Integer.parseInt(totalNoOfIssuesTxt.getText());
+                    return new BookSeries(title.getText(), publisher.getText(), releaseDate.getText());
                 }
                 return null;
             }

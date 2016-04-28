@@ -9,23 +9,23 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 /**
- * A dialog used to get the necessary information about a newspaper from the
- * user, in order to be able to create a Newspaper instance to be added
+ * A dialog used to get the necessary information about a magazine from the
+ * user, in order to be able to create a Magazine instance to be added
  * to the register.
  *
  * @author asty & Oscar Wika
  */
 
-public class NewspaperDetailsDialog extends Dialog<Newspaper>
+public class PeriodicalDetailsDialog extends Dialog<Periodical>
 {
 
     /**
-     * Creates an instance of the NewspaperDetails dialog
+     * Creates an instance of the MagazineDetails dialog
      */
-    public NewspaperDetailsDialog()
+    public PeriodicalDetailsDialog()
     {
         super();
-        setTitle("Newspaper Details");
+        setTitle("Periodical Details");
 
         // Set the button types.
         getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
@@ -79,15 +79,15 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         getDialogPane().setContent(grid);
 
         // Convert the result to a username-password-pair when the OK button is clicked.
-        setResultConverter(new Callback<ButtonType, Newspaper>()
+        setResultConverter(new Callback<ButtonType, Periodical>()
         {
             @Override
-            public Newspaper call(ButtonType button)
+            public Periodical call(ButtonType button)
             {
                 if (button == ButtonType.OK)
                 {
                     int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Newspaper(title.getText(), publisher.getText(), issueNo, releaseDate.getText());
+                    return new Periodical(title.getText(), publisher.getText(), issueNo, releaseDate.getText());
                 }
                 return null;
             }

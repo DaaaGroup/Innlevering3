@@ -58,7 +58,7 @@ public abstract class Literature
      * @return Returns the name of the publisher.
      */
     public String getPublisher()
-    {
+    {   
         return this.publisher;
     }
     
