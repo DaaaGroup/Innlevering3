@@ -18,10 +18,11 @@ public class Newspaper extends Literature
      * @param publisher Name of the publisher.
      * @param numberPerWeek How many times a week it is released.
      * @param releaseDate The release date.
+     * @param type
      */
-    public Newspaper(String title, String publisher, int numberPerWeek, String releaseDate)
+    public Newspaper(String title, String publisher, int numberPerWeek, String releaseDate, String type)
     {
-        super(title, publisher, releaseDate);
+        super(title, publisher, releaseDate, type);
         this.numberPerWeek = numberPerWeek;
 
     }

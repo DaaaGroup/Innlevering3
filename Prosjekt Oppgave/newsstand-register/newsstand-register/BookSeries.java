@@ -19,12 +19,12 @@ public class BookSeries extends Literature {
      *
      *
      * @param title The title of the book series.
-     * @param author
      * @param publisher The publisher of the book series.
+     * @param type
      * @param releaseDate The date when the book series is released.
      */
-    public BookSeries(String title, String author, String publisher, String releaseDate) {
-        super(title, publisher, releaseDate);
+    public BookSeries(String title, String publisher, String releaseDate, String type) {
+        super(title, publisher, releaseDate, type);
     }
 
     /**

@@ -19,9 +19,9 @@ public class Periodical extends Literature
      * @param numberPerWeek How many times a week it is released.
      * @param releaseDate The release date.
      */
-    public Periodical (String title, String publisher, int numberPerWeek, String releaseDate)
+    public Periodical (String title, String publisher, int numberPerWeek, String releaseDate, String type)
     {
-        super(title, publisher, releaseDate);
+        super(title, publisher, releaseDate, type);
         this.numberPerWeek = numberPerWeek;
    
     }

@@ -72,6 +72,15 @@ public class Register {
     public void addBook(String title, String author, String publisher, String releaseDate) {
         inventory.addNewBook(title, author, publisher, releaseDate);
     }
+    
+        /**
+     * Creates a new Book.
+     *
+     * @param oldBook
+     */
+    public void addBookSeries(Literature oldBook) {
+        inventory.addNewBookSeries(oldBook);
+    }
 
     /**
      * An accessor method that returns relevant information about the inventory.

@@ -128,7 +128,7 @@ public class BookDetailsDialog extends Dialog<Book>
                 {
                     //int issueNo = Integer.parseInt(author.getText());
                     //int totalIssues = Integer.parseInt(totalNoOfIssuesTxt.getText());
-                    return new Book(title.getText(), author.getText(), publisher.getText(), "Book");
+                    return new Book(title.getText(), author.getText(), publisher.getText(), releaseDate.getText(), "Book");
                 }
                 return null;
             }

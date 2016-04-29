@@ -24,14 +24,16 @@ public class Inventory
      * This method is responsible for creating an object of type BookSeries and
      * add it to the inventory list.
      * 
-     * @param title Title of the BookSeries
-     * @param publisher Name of publishing company.
-     * @param releaseDate date of release.
+     * @param oldBook
      */
-    public void addNewBookSeries(String title, String publisher, String releaseDate)
+    public void addNewBookSeries(Literature oldBook)
     {
-        BookSeries newBookSeries = new BookSeries(title, "", publisher, releaseDate);
+        if(oldBook instanceof Book)
+        {
+        BookSeries newBookSeries = new BookSeries(oldBook.getTitle(),oldBook.getPublisher(),oldBook.getReleaseDate(), "Book Series");
         literatureInStock.add(newBookSeries);
+            removeItem(oldBook);
+        }
     }
     
     /**
@@ -45,7 +47,7 @@ public class Inventory
      */
     public void addNewBook(String title, String author, String publisher, String releaseDate)
     {
-        Book newBook = new Book(title, author, publisher, releaseDate);
+        Book newBook = new Book(title, author, publisher, releaseDate, "");
         literatureInStock.add(newBook);
     }
     
@@ -60,7 +62,7 @@ public class Inventory
      */
     public void addNewMagazine(String title, String publisher, int numberPerWeek, String releaseDate)
     {
-        Magazine newMagazine = new Magazine(title, publisher, numberPerWeek, releaseDate);
+        Magazine newMagazine = new Magazine(title, publisher, numberPerWeek, releaseDate, "");
         literatureInStock.add(newMagazine);
     }
     
@@ -84,7 +86,7 @@ public class Inventory
      */
     public void addNewNewspaper(String title, String publisher, int numberPerWeek, String releaseDate)
     {
-        Newspaper newNewspaper = new Newspaper(title, publisher, numberPerWeek, releaseDate);
+        Newspaper newNewspaper = new Newspaper(title, publisher, numberPerWeek, releaseDate, "");
         literatureInStock.add(newNewspaper);
     }
 
@@ -99,7 +101,7 @@ public class Inventory
      */
     public void addNewPeriodical(String title, String publisher, int numberPerWeek, String releaseDate) 
     {
-        Periodical newPeriodical = new Periodical(title, publisher, numberPerWeek, releaseDate);
+        Periodical newPeriodical = new Periodical(title, publisher, numberPerWeek, releaseDate, "");
         literatureInStock.add(newPeriodical);
     }
     
@@ -288,7 +290,7 @@ public ArrayList<Literature> searchForTitleAndPublisher(String input) {
         String title = literatureInStock.get(menuSelection - 1).getTitle();
         String publisher = literatureInStock.get(menuSelection - 1).getPublisher();
         String releaseDate = literatureInStock.get(menuSelection - 1).getReleaseDate();
-        addNewBookSeries(title, publisher, releaseDate);
+        //addNewBookSeries(title, publisher, releaseDate);
     }
     
     /**
@@ -302,5 +304,31 @@ public ArrayList<Literature> searchForTitleAndPublisher(String input) {
     
     public void removeItem(Literature literature){
         literatureInStock.remove(literature);
+    }
+    
+    /**
+     * Test dummies
+     */
+    public void addDummyObjets()
+    {
+        this.literatureInStock.add(new Newspaper("VG", "Schibsted Norge",400, "hallo", "pizza"));
+        this.literatureInStock.add(new Newspaper("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
+        this.literatureInStock.add(new Newspaper("Dagbladet", "Dagbladet", 12, "ost", "cake"));
+        this.literatureInStock.add(new Newspaper("Hordaland", "Hordaland", 12, "cake", "pst"));
+        //
+        this.literatureInStock.add(new Magazine("VG", "Schibsted Norge",400, "hallo", "pizza"));
+        this.literatureInStock.add(new Magazine("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
+        this.literatureInStock.add(new Magazine("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
+        this.literatureInStock.add(new Magazine("Dagbladet", "Dagbladet", 12, "ost", "cake"));
+        //
+        this.literatureInStock.add(new Periodical("VG", "Schibsted Norge",400, "hallo", "pizza"));
+        this.literatureInStock.add(new Periodical("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
+        this.literatureInStock.add(new Periodical("Dagbladet", "Dagbladet", 12, "ost", "cake"));
+        this.literatureInStock.add(new Periodical("Hordaland", "Hordaland", 12, "cake", "pst"));
+        //
+        this.literatureInStock.add(new Book("VG", "Schibsted Norge", "lul", "hallo", "pizza"));
+        this.literatureInStock.add(new Book("Aftenposten", "Schibsted Norge", "lol", "hallo", "ost"));
+        this.literatureInStock.add(new Book("Dagbladet", "Dagbladet", "lol", "ost", "cake"));
+        this.literatureInStock.add(new Book("Hordaland", "Hordaland", "awodm", "cake", "pst"));
     }
 }

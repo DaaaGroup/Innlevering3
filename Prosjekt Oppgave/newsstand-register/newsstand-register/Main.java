@@ -55,7 +55,7 @@ public class Main extends Application
     private ObservableList<Literature> literatures;
     TreeView<String> tree;
     
-    TextField txt;
+    TextField searchField;
     
     private Register litReg;
     
@@ -110,14 +110,14 @@ public class Main extends Application
         borderPane.setTop(topContainer);
         borderPane.setLeft(scaryVBox);
         
-        txt = new TextField();
+        searchField = new TextField();
         borderPane.setCenter(borderPane2);
         borderPane2.setCenter(createCentreContent());
-        borderPane2.setTop(txt);
-        txt.setPromptText("Search...");
+        borderPane2.setTop(searchField);
+        searchField.setPromptText("Search...");
         
         
-        txt.textProperty().addListener((v, oldValue, newValue) -> {
+        searchField.textProperty().addListener((v, oldValue, newValue) -> {
             
             ArrayList<Literature> searchResult = litReg.searchForLiterature(newValue);
             if(newValue.length() > 0)
@@ -130,10 +130,6 @@ public class Main extends Application
             }
             
         });
- 
-        
-        // Status bar
-        //borderPane.setBottom(createStatusBar());
         
         Scene scene = new Scene(borderPane, 717, 350);
         scene.getStylesheets().add("Stylesheet.css");
@@ -143,29 +139,35 @@ public class Main extends Application
 
     }
 
+    /**
+     * 
+     * @return 
+     */
     private MenuBar createMenus() 
     {
         MenuBar menuBar = new MenuBar();
     
         // First Menu Option
         Menu optionMenu = new Menu("Options");
-        MenuItem testItem1 = new MenuItem("insertOption1");
-        MenuItem testItem2 = new MenuItem("insertOption2");
-        MenuItem testItem3 = new MenuItem("Exit");
-        optionMenu.getItems().addAll(testItem1, testItem2);
+        MenuItem removeItem = new MenuItem("Remove");
+        MenuItem convertItem = new MenuItem("Convert");
+        MenuItem exitItem = new MenuItem("Exit");
+        optionMenu.getItems().addAll(removeItem, convertItem);
         optionMenu.getItems().add(new SeparatorMenuItem());
-        optionMenu.getItems().add(testItem3);
+        optionMenu.getItems().add(exitItem);
         
         // Event handler
-        testItem1.setOnAction((ActionEvent event) -> {
-            System.out.println("insertOption1 was selected...");
+        removeItem.setOnAction((ActionEvent event) -> {
+            litReg.removeItem(tableView.getSelectionModel().getSelectedItem());
+            updateObservableList();
         });
         
-        testItem2.setOnAction((ActionEvent event) -> {
-            System.out.println("insertOption2 was selected...");
+        convertItem.setOnAction((ActionEvent event) -> {
+            litReg.addBookSeries(tableView.getSelectionModel().getSelectedItem());
+            updateObservableList();
         });
         
-        testItem3.setOnAction((ActionEvent event) -> {
+        exitItem.setOnAction((ActionEvent event) -> {
             doExitApplication();
         });
 
@@ -180,7 +182,7 @@ public class Main extends Application
         });
         
         helpContentItem.setOnAction((ActionEvent event) -> {
-            doShowAboutDialog();
+            doManualDialog();
         });
 
         menuBar.getMenus().addAll(optionMenu, helpMenu);
@@ -193,25 +195,25 @@ public class Main extends Application
      * @return 
      */
     private TreeView createTree() {
-        TreeItem<String> root, registerProduct, removeProduct;
+        TreeItem<String> root, registerBranch, featuresBranch;
         
         // Main
         root = new TreeItem<>();
         root.setExpanded(true);
         
         // Register branch 
-        registerProduct = makeBranch("Register", root);
-        makeBranch("Newspaper", registerProduct);
-        makeBranch("Magazine", registerProduct);
-        makeBranch("Periodical", registerProduct);
-        makeBranch("Book", registerProduct);
-        makeBranch("Book Series", registerProduct);
+        registerBranch = makeBranch("Register", root);
+        makeBranch("Newspaper", registerBranch);
+        makeBranch("Magazine", registerBranch);
+        makeBranch("Periodical", registerBranch);
+        makeBranch("Book", registerBranch);
+        makeBranch("Book Series", registerBranch);
         
         // Remove branch 
-        removeProduct = makeBranch("Features", root);
+        featuresBranch = makeBranch("Features", root);
         
-        makeBranch("Remove", removeProduct);
-        makeBranch("Convert book\nto series", removeProduct);
+        makeBranch("Remove", featuresBranch);
+        makeBranch("Convert book\nto series", featuresBranch);
         
             
         // Create Tree
@@ -364,8 +366,7 @@ public class Main extends Application
         // The Category-column
         TableColumn<Literature, String> categoryColumn = new TableColumn<>("Category");
         categoryColumn.setMinWidth(200);
-        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
-        
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         
         // The releaseDate-column
         /*TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release Date");
@@ -395,7 +396,7 @@ public class Main extends Application
 
     /**
      * Updates the ObservableArray wrapper with the current content in the
-       Literature registerProduct. Call this method whenever changes are made to the
+       Literature registerBranch. Call this method whenever changes are made to the
      * underlying LiteratureRegister.
      */
     private void updateObservableList()
@@ -416,9 +417,14 @@ public class Main extends Application
             if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Spesified literature removed");
                 litReg.removeItem(tableView.getSelectionModel().getSelectedItem());
-            }
+            }}
+        if(selectedItem.getValue().equals("Convert book\nto series")){
+            if(selectedItem.getParent().getValue().equals("Features")){
+                System.out.println("Book converted to Book Series");
+                litReg.addBookSeries(tableView.getSelectionModel().getSelectedItem());
+            }}
         updateObservableList();
-    }}
+    }
     
     
     /**
@@ -434,7 +440,6 @@ public class Main extends Application
         {
             Newspaper newspaper = result.get();
             litReg.addLiterature(newspaper);
-            //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
@@ -452,7 +457,6 @@ public class Main extends Application
         {
             Magazine magazine = result.get();
             litReg.addLiterature(magazine);
-            //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
@@ -470,7 +474,6 @@ public class Main extends Application
         {
             Periodical periodical = result.get();
             litReg.addLiterature(periodical);
-            //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }    
@@ -488,7 +491,6 @@ public class Main extends Application
         {
             Book book = result.get();
             litReg.addLiterature(book);
-            //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
@@ -506,7 +508,6 @@ public class Main extends Application
         {
             BookSeries bookSeries = result.get();
             litReg.addLiterature(bookSeries);
-            //updateObservableList();
             System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
@@ -516,6 +517,36 @@ public class Main extends Application
      * type of dialog.
      */
     private void doShowAboutDialog()
+    {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("About");
+        alert.setHeaderText("Newsstand Register");
+        alert.setContentText("Authors:"
+                + "\nOscar Wika, Siv Furland, Thomas Todal & Kristoffer Martinsen\n"
+                + "\nSubject:\nObjektorientert Programmering (ID101912)\n"
+                + "\nVersion: \n0.1 2016-04-29");
+        alert.showAndWait();
+    }
+    
+    /**
+     * Displays an example of an alert (info) dialog. In this case an "about"
+     * type of dialog.
+     */
+    private void doManualDialog()
+    {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Manual");
+        alert.setHeaderText("How to use the application:");
+        alert.setContentText("To add literature to the list:\n"
+                    + "Double click or press enter on something");
+        alert.showAndWait();
+    }
+    
+    /**
+     * Displays an example of an alert (info) dialog. In this case an "about"
+     * type of dialog.
+     */
+    private void removeLiteratureConfirmation()
     {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("About");

@@ -124,7 +124,7 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
                 if (button == ButtonType.OK)
                 {
                     int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Newspaper(title.getText(), publisher.getText(), issueNo, "Newspaper");
+                    return new Newspaper(title.getText(), publisher.getText(), issueNo, releaseDate.getText(), "Newspaper");
                 }
                 return null;
             }

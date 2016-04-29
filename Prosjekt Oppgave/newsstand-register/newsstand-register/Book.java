@@ -24,12 +24,22 @@ public class Book extends Literature {
      * @param author The author of the book.
      * @param publisher The publisher of the book.
      * @param releaseDate The release date of the book.
+     * @param type
      */
-    public Book(String title, String author, String publisher, String releaseDate) {
-        super(title, publisher, releaseDate);
+    public Book(String title, String author, String publisher, String releaseDate, String type) {
+        super(title, publisher, releaseDate, type);
         this.author = author;
         
 
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getAuthor()
+    {
+        return this.author;
     }
     
     /**

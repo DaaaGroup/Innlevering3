@@ -89,15 +89,16 @@ public class BookSeriesDetailsDialog extends Dialog<BookSeries>
             {
                 if (button == ButtonType.OK)
                 {
-                    //int issueNo = Integer.parseInt(author.getText());
-                    //int totalIssues = Integer.parseInt(totalNoOfIssuesTxt.getText());
-                    return new BookSeries(title.getText(), "", publisher.getText(), "Book Series");
+                    return new BookSeries(title.getText(), publisher.getText(), releaseDate.getText(), "Book Series");
                 }
                 return null;
             }
         });
     }
     
+    /**
+     * 
+     */
     private void setButtonDisable() {
         if(!checkOkButton()){
             loginButton.setDisable(true);

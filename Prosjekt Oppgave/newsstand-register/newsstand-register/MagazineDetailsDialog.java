@@ -122,7 +122,7 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
                 if (button == ButtonType.OK)
                 {
                     int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Magazine(title.getText(), publisher.getText(), issueNo, "Magazine");
+                    return new Magazine(title.getText(), publisher.getText(), issueNo, releaseDate.getText(), "Magazine");
                 }
                 return null;
             }
