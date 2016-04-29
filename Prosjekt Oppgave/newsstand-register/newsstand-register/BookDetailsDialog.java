@@ -24,7 +24,7 @@ public class BookDetailsDialog extends Dialog<Book>
     private TextField publisher;
     private TextField author;
     private TextField releaseDate;
-    private Node loginButton;
+    private Node okayButton;
     
     
     /**
@@ -35,11 +35,11 @@ public class BookDetailsDialog extends Dialog<Book>
         super();
         setTitle("Periodical Details");
         
-        ButtonType loginButtonType = ButtonType.OK;
+        ButtonType okayButtonType = ButtonType.OK;
         // Set the button types.
-        getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
-        loginButton = this.getDialogPane().lookupButton(loginButtonType);
-        loginButton.setDisable(true);
+        getDialogPane().getButtonTypes().addAll(okayButtonType, ButtonType.CANCEL);
+        okayButton = this.getDialogPane().lookupButton(okayButtonType);
+        okayButton.setDisable(true);
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
@@ -136,9 +136,9 @@ public class BookDetailsDialog extends Dialog<Book>
     }
     private void setButtonDisable() {
         if(!checkOkButton()){
-            loginButton.setDisable(true);
+            okayButton.setDisable(true);
         } else{
-            loginButton.setDisable(false);
+            okayButton.setDisable(false);
         }
     }
     
