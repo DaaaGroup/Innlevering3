@@ -1,6 +1,6 @@
 /* 
     Created on : 28.apr.2016, 23:58:42
-    Author     : OscarWika
+    Author     : Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland
 */
 
 /* ==========================
@@ -19,7 +19,7 @@
 }  
 
 /* Color of the drop down menu(menu items)
-   Text is white by default */
+   Text is white by default */  
 .context-menu {
     -fx-background-color: #333337;
 }

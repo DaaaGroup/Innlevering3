@@ -19,7 +19,7 @@ public class Register {
     }
     
     /**
-     * Creates a new Newspaper.
+     * Takes in a literature object as parameter.
      * @param literature
      */
     public void addLiterature(Literature literature)
