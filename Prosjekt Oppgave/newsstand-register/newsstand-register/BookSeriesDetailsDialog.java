@@ -91,7 +91,7 @@ public class BookSeriesDetailsDialog extends Dialog<BookSeries>
                 {
                     //int issueNo = Integer.parseInt(author.getText());
                     //int totalIssues = Integer.parseInt(totalNoOfIssuesTxt.getText());
-                    return new BookSeries(title.getText(), "", publisher.getText(), releaseDate.getText());
+                    return new BookSeries(title.getText(), "", publisher.getText(), "Book Series");
                 }
                 return null;
             }

@@ -123,7 +123,7 @@ public class PeriodicalDetailsDialog extends Dialog<Periodical>
                 if (button == ButtonType.OK)
                 {
                     int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Periodical(title.getText(), publisher.getText(), issueNo, releaseDate.getText());
+                    return new Periodical(title.getText(), publisher.getText(), issueNo, "Periodical");
                 }
                 return null;
             }

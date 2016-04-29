@@ -172,19 +172,18 @@ public class Inventory
      * @param input The string it should use to find matching items.
      * @return matchingItems A list of items matching the search string.
      */
-    public ArrayList<Literature> searchForTitleAndPublisher(String input)
-    {
-        ArrayList<Literature> matchingItems = new ArrayList<>();
-        
-        for(Literature literature : literatureInStock) {
-            if(literature.getTitle().toLowerCase().contains(input.toLowerCase())){
-                matchingItems.add(literature);
-            }
-            else if(literature.getPublisher().toLowerCase().contains(input.toLowerCase())){
-                matchingItems.add(literature);
+public ArrayList<Literature> searchForTitleAndPublisher(String input) {
+        input = input.trim().toLowerCase();
+        ArrayList<Literature> foundLiterature = new ArrayList<>();
+        for (Literature literature : literatureInStock) {
+            if (literature.getTitle().toLowerCase().contains(input)) {
+                foundLiterature.add(literature);
+            } else if (literature.getPublisher().toLowerCase().contains(input)) {
+                foundLiterature.add(literature);
             }
         }
-        return matchingItems;
+
+        return foundLiterature;
     }
     
     /**

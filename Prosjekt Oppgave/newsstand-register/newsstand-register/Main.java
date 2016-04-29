@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -15,12 +16,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -51,6 +54,8 @@ public class Main extends Application
     TableView<Literature> tableView;
     private ObservableList<Literature> literatures;
     TreeView<String> tree;
+    
+    TextField txt;
     
     private Register litReg;
     
@@ -93,6 +98,7 @@ public class Main extends Application
         
         // Window
         BorderPane borderPane = new BorderPane();
+        BorderPane borderPane2 = new BorderPane();
         VBox topContainer = new VBox();
         MenuBar mainMenu = createMenus();
         VBox scaryVBox = new VBox (createTree());
@@ -103,10 +109,21 @@ public class Main extends Application
         // Set the topContainer in the top of the borderpane
         borderPane.setTop(topContainer);
         borderPane.setLeft(scaryVBox);
-        //toolBar.setOrientation(Orientation.VERTICAL);
+        
+        txt = new TextField();
+        borderPane.setCenter(borderPane2);
+        borderPane2.setCenter(createCentreContent());
+        borderPane2.setTop(txt);
+        txt.setPromptText("Search...");
         
         
-        borderPane.setCenter(createCentreContent());
+        txt.textProperty().addListener((v, oldValue, newValue) -> {
+            
+            ArrayList<Literature> searchResult = register.searchForLiterature(newValue);
+            literatures.clear();
+            literatures.addAll(searchResult);
+        });
+ 
         
         // Status bar
         //borderPane.setBottom(createStatusBar());
@@ -158,10 +175,6 @@ public class Main extends Application
         helpContentItem.setOnAction((ActionEvent event) -> {
             doShowAboutDialog();
         });
-        
-
-        /*// Third Menu Option
-        Menu menuView = new Menu("3rd Menu");*/
 
         menuBar.getMenus().addAll(optionMenu, helpMenu);
 
@@ -229,8 +242,6 @@ public class Main extends Application
                 removeLiterature(tree.getSelectionModel().getSelectedItem());
             }
             }
-            
-            
             }
         });
         return tree;
@@ -321,15 +332,6 @@ public class Main extends Application
 
         return statusBar;
     }
-
-    /**
-     * Our own version of an exit information box.
-     */
-    private void closeProgram(){
-        Boolean answer = ConfirmBox.display("Unsaved files", "Are you sure you want to Exit?");
-        if(answer)
-            System.exit(0);
-    }
     
     /**
      * Creates the content of the center section of the GUI.
@@ -339,7 +341,7 @@ public class Main extends Application
     private Node createCentreContent()
     {
         VBox vbox = new VBox();
-        
+                
         // Define the columns
         // The Title-column
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
@@ -354,7 +356,7 @@ public class Main extends Application
         // The Category-column
         TableColumn<Literature, String> categoryColumn = new TableColumn<>("Category");
         categoryColumn.setMinWidth(200);
-        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
         tableView = new TableView();
         tableView.setItems(literatures);
@@ -517,7 +519,7 @@ public class Main extends Application
     {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Exit");
-        alert.setHeaderText("Exit Application ?");
+        alert.setHeaderText("Unsaved files");
         alert.setContentText("Are you sure you want to exit this application?");
         
         /*alert.getButtonTypes().clear();

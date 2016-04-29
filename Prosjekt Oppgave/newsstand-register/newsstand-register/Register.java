@@ -166,4 +166,9 @@ public class Register {
     public void removeItem(Literature literature){
         inventory.removeItem(literature);
     }
+    
+    public ArrayList<Literature> searchForLiterature(String input)
+    {
+        return inventory.searchForTitleAndPublisher(input);
+    }
 }

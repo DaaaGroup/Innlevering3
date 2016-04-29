@@ -13,7 +13,7 @@ import javafx.util.Callback;
  * A dialog used to get the necessary information about a magazine from the
  * user, in order to be able to create a Magazine instance to be added
  * to the register.
- *
+ * 
  * @author asty & Oscar Wika
  */
 
@@ -122,7 +122,7 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
                 if (button == ButtonType.OK)
                 {
                     int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    return new Magazine(title.getText(), publisher.getText(), issueNo, releaseDate.getText());
+                    return new Magazine(title.getText(), publisher.getText(), issueNo, "Magazine");
                 }
                 return null;
             }

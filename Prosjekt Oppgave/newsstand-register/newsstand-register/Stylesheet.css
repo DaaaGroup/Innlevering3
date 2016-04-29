@@ -18,8 +18,6 @@
     -fx-background-color: #333337;
 }  
 
-
-
 /* Color of the drop down menu(menu items)
    Text is white by default */
 .context-menu {
@@ -57,23 +55,6 @@
         TableView Styling
    ==========================
 */
-
-/* Changed the background color when nothing in table
-.table-view {
-    -fx-background-color:#232326;
-    -fx-text-fill: white;
-} 
-
-/* Styling for the column headers 
-.column-header {
-    -fx-background-color: green;
-} */
-
-
-
-
-
-
 
 /* Background color for the table content when no objects */
 .root {
