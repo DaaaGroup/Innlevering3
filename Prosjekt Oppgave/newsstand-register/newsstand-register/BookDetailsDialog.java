@@ -138,8 +138,9 @@ public class BookDetailsDialog extends Dialog<Book>
         });
     }
     
-    /**
-     * 
+   /**
+     * Enables the "Ok" button if all the fields are filled out.
+     * Otherwise you won't be able to press it.
      */
     private void setButtonDisable() {
         if(!checkOkButton()){
@@ -150,8 +151,8 @@ public class BookDetailsDialog extends Dialog<Book>
     }
     
     /**
-     * 
-     * @return 
+     * Returns false if any of the text fields are empty.
+     * @return isNotEmpty Returns false if any of the text fields are empty.
      */
     private boolean checkOkButton()
     {

@@ -31,9 +31,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Write a description of class Main here.
+ * This class represents the GUI(User Interface) of our Newsstand Register application.
  * 
- * @author Oscar Wika
+ * @author Oscar Wika, Thomas Todal, Siv Furland & Kristoffer Martinsen.
  * @version innlevering 5
  */
 public class Main extends Application 
@@ -72,9 +72,9 @@ public class Main extends Application
     }
     
     /**
-     * 
-     * @param primaryStage
-     * @throws Exception 
+     * Method that starts the program and sets it up the user interface.
+     * @param primaryStage The main window, the stage of the GUI.
+     * @throws Exception Throws any exception that might occur.
      */
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -130,8 +130,8 @@ public class Main extends Application
     }
 
     /**
-     * 
-     * @return 
+     * Creates the top Menu.
+     * @return menuBar Returns the menuBar. 
      */
     private MenuBar createMenus() 
     {
@@ -181,8 +181,8 @@ public class Main extends Application
     }
     
     /**
-     * 
-     * @return 
+     * Creates the a TreeView "menu" which is located on the left in our application.
+     * @return Returns the treeView menu.
      */
     private TreeView createTree() {
         TreeItem<String> root, registerBranch, featuresBranch;
@@ -248,53 +248,53 @@ public class Main extends Application
     }
     
     /**
-     * 
-     * @param selectedItem 
+     * Method for adding different types of litterature
+     * @param selectedItem The item the user selects in the tree.
      */
     private void addLiterature(TreeItem<String> selectedItem){
         // NEWSPAPER
         if(selectedItem.getValue().equals("Newspaper")){
             if(selectedItem.getParent().getValue().equals("Register"))
             {
-                System.out.println("Register newspaper");
+                //System.out.println("Register newspaper");
                 doAddNewspaper();
             }}
         // MAGAZINE
         if(selectedItem.getValue().equals("Magazine")){
             if(selectedItem.getParent().getValue().equals("Register"))
             {
-                System.out.println("Register Magazine");
+                //System.out.println("Register Magazine");
                 doAddMagazine();
             }}
         // PERIODICAL
         if(selectedItem.getValue().equals("Periodical")){
             if(selectedItem.getParent().getValue().equals("Register"))
             {
-                System.out.println("Register Periodical");
+                //System.out.println("Register Periodical");
                 doAddPeriodical();
             }}
         // BOOK
         if(selectedItem.getValue().equals("Book")){
             if(selectedItem.getParent().getValue().equals("Register"))
             {
-                System.out.println("Register Book");
+                //System.out.println("Register Book");
                 doAddBook();
             }}
         // BOOK SERIES
         if(selectedItem.getValue().equals("Book Series")){
             if(selectedItem.getParent().getValue().equals("Register"))
             {
-                System.out.println("Register Book Series");
+                //System.out.println("Register Book Series");
                 doAddBookSeries();
             }}
         updateObservableList();
     }
     
     /**
-     * Create Branches
-     * @param title
-     * @param parent
-     * @return 
+     * Create Branches in the tree menu.
+     * @param title The title of the branch item.
+     * @param parent The parent of the branch item.
+     * @return item 
      */
     public TreeItem<String> makeBranch(String title, TreeItem<String> parent){
         TreeItem<String> item = new TreeItem<>(title);
@@ -375,18 +375,18 @@ public class Main extends Application
     }
 
     /**
-     * Remove method 
-     * @param selectedItem 
+     * Method for removing literature.
+     * @param selectedItem The item the user selects in the tree.
      */
     private void removeLiterature(TreeItem<String> selectedItem) {
         if(selectedItem.getValue().equals("Remove")){
             if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Spesified literature removed");
+                //System.out.println("Spesified literature removed");
                 litReg.removeItem(tableView.getSelectionModel().getSelectedItem());
             }}
         if(selectedItem.getValue().equals("Convert book\nto series")){
             if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Book converted to Book Series");
+                //System.out.println("Book converted to Book Series");
                 litReg.addBookSeries(tableView.getSelectionModel().getSelectedItem());
             }}
         updateObservableList();
@@ -406,7 +406,7 @@ public class Main extends Application
         {
             Newspaper newspaper = result.get();
             litReg.addLiterature(newspaper);
-            System.out.println("Number of items in litReg: " + litReg.getSize());
+            //System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
     
@@ -423,12 +423,12 @@ public class Main extends Application
         {
             Magazine magazine = result.get();
             litReg.addLiterature(magazine);
-            System.out.println("Number of items in litReg: " + litReg.getSize());
+            //System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
     
     /**
-     * Method for adding periodicals
+     * Method for adding periodicals.
      */
     private void doAddPeriodical()
     {
@@ -440,12 +440,12 @@ public class Main extends Application
         {
             Periodical periodical = result.get();
             litReg.addLiterature(periodical);
-            System.out.println("Number of items in litReg: " + litReg.getSize());
+            //System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }    
     
     /**
-     * Method for adding periodicals
+     * Method for adding books.
      */
     private void doAddBook()
     {
@@ -457,12 +457,12 @@ public class Main extends Application
         {
             Book book = result.get();
             litReg.addLiterature(book);
-            System.out.println("Number of items in litReg: " + litReg.getSize());
+            //System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
         
     /**
-     * Method for adding periodicals
+     * Method for adding book series.
      */
     private void doAddBookSeries()
     {
@@ -474,7 +474,7 @@ public class Main extends Application
         {
             BookSeries bookSeries = result.get();
             litReg.addLiterature(bookSeries);
-            System.out.println("Number of items in litReg: " + litReg.getSize());
+            //System.out.println("Number of items in litReg: " + litReg.getSize());
         }
     }
     
@@ -502,26 +502,25 @@ public class Main extends Application
     {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Manual");
-        alert.setHeaderText("How to use the application:");
-        alert.setContentText("To add literature to the list:\n"
-                    + "Double click or press enter on something");
+        alert.setHeaderText("User Manual");
+        alert.setContentText("How to register a product:"
+                    + "\n1. Open the \"Register\" menu on the left." 
+                    + "\n2. Select the product type you wish to register."
+                    + "\n3. Press enter or double click the product type.\n"
+                    + "\n How to remove a product:"
+                    + "\n 1. Open the \"Features\" menu on the left."
+                    + "\n 2. Select a product in the table."
+                    + "\n 3. Select \"Remove\" in the menu on the left."
+                    + "\n 4. Press enter or double click on \"Remove\".\n"
+                    + "\n How to convert a Book to Book Series:"
+                    + "\n 1. Select the book you wish to convert in the table:"
+                    + "\n 2. Open the \"Features\" menu on the left."
+                    + "\n 3. Select \"Convert\" in the menu on the left."
+                    + "\n 3. Press enter or double click on \"Convert\"."
+                    + "\n\n If you encounter any issues while using our program,"
+                    + "\n please contact us at: oscar_wika@hotmail.com");
         alert.showAndWait();
-    }
-    
-    /**
-     * Displays an example of an alert (info) dialog. In this case an "about"
-     * type of dialog.
-     */
-    private void removeLiteratureConfirmation()
-    {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("About");
-        alert.setHeaderText("Newsstand Register");
-        alert.setContentText("Authors:"
-                + "\nOscar Wika, Siv Furland, Thomas Todal & Kristoffer Martinsen\n"
-                + "\nSubject:\nObjektorientert Programmering (ID101912)\n"
-                + "\nVersion: \n0.1 2016-04-29");
-        alert.showAndWait();
+        alert.setHeaderText("halo");
     }
     
     /**
@@ -529,27 +528,28 @@ public class Main extends Application
      */
     private void doExitApplication()
     {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
+        Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Exit");
         alert.setHeaderText("Unsaved files");
-        alert.setContentText("Are you sure you want to exit this application?");
+        alert.setContentText("Our program doesn't support file saving at the moment."
+                        + "\nDo you still wish to exit the application?");
+
         
-        /*alert.getButtonTypes().clear();
-        alert.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        alert.getButtonTypes().clear();
+        alert.getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
         
         //Deactivate Defaultbehavior for yes-Button:
-        Button yesButton = (Button) alert.getDialogPane().lookupButton( ButtonType.OK );
-        yesButton.setDefaultButton( false );
+        Button yesButton = (Button) alert.getDialogPane().lookupButton( ButtonType.YES );
+        yesButton.setDefaultButton( true );
 
         //Activate Defaultbehavior for no-Button:
-        Button noButton = (Button) alert.getDialogPane().lookupButton( ButtonType.CANCEL );
-        noButton.setDefaultButton( false );*/
-
+        Button noButton = (Button) alert.getDialogPane().lookupButton( ButtonType.NO );
+        noButton.setDefaultButton( false );
+        
         Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.get() == ButtonType.OK)
+        if (result.get() == ButtonType.YES)
         {
-            // ... user chose OK
             System.exit(0);
         } else
         {

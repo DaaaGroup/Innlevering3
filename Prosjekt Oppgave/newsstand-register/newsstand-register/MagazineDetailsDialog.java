@@ -133,8 +133,8 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
     }
     
     /**
-     * Method for checking the button.
-     * You won't be able to press it if you left any text fields empty.
+     * Enables the "Ok" button if all the fields are filled out.
+     * Otherwise you won't be able to press it.
      */
     private void setButtonDisable() {
         if(!checkOkButton()){
@@ -145,8 +145,8 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
     }
     
     /**
-     * Returns false if all the text fields are empty.
-     * @return isNotEmpty Returns false if all the text fields are empty.
+     * Returns false if any of the text fields are empty.
+     * @return isNotEmpty Returns false if any of the text fields are empty.
      */
     private boolean checkOkButton()
     {

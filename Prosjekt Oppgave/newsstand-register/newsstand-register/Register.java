@@ -19,8 +19,9 @@ public class Register {
     }
     
     /**
-     * Takes in a literature object as parameter.
-     * @param literature
+     * This method takes in an object of class Literature,
+     * and puts the object in to inventory.
+     * @param literature The object to be added to the inventory.
      */
     public void addLiterature(Literature literature)
     {
@@ -165,17 +166,18 @@ public class Register {
     }
     
     /**
-     * 
-     * @param literature 
+     * This method takes in an object of class Literature,
+     * and removes the item from the inventory.
+     * @param literature The object to be removed from the inventory.
      */
     public void removeItem(Literature literature){
         inventory.removeItem(literature);
     }
     
     /**
-     * 
+     * Returns an Array List of Literature.
      * @param input The text input from user.
-     * @return Returns
+     * @return Returns an Array List of Literature.
      */
     public ArrayList<Literature> searchForLiterature(String input)
     {

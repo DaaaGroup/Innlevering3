@@ -36,8 +36,9 @@ public class Inventory
     }
     
     /**
-     * 
-     * @param literature 
+     * This method takes in an object of class Literature,
+     * and puts the object in to literatureInStock.
+     * @param literature The object to be added to the literatureInStock list
      */
     public void addLiterature(Literature literature)
     {
@@ -90,7 +91,7 @@ public class Inventory
     }
 
     /**
-     *This method is responsible for creating an object of type Periodical and
+     * This method is responsible for creating an object of type Periodical and
      * add it to the inventory list.
      * 
      * @param title Title of periodical
