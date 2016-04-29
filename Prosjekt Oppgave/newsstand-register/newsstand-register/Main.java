@@ -10,7 +10,10 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -85,7 +88,7 @@ public class Main extends Application
         // Close window confirmation
             primaryStage.setOnCloseRequest(e -> {
             e.consume();
-            closeProgram();
+            doExitApplication();
         });
         
         // Window
@@ -109,6 +112,7 @@ public class Main extends Application
         //borderPane.setBottom(createStatusBar());
         
         Scene scene = new Scene(borderPane, 717, 350);
+        scene.getStylesheets().add("Stylesheet.css");
         primaryStage.setTitle("Newsstand Application");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -138,16 +142,28 @@ public class Main extends Application
         });
         
         testItem3.setOnAction((ActionEvent event) -> {
-            closeProgram();
+            doExitApplication();
         });
 
         // Second Menu Option
-        Menu aboutMenu = new Menu("About");
+        Menu helpMenu = new Menu("Help");
+        MenuItem aboutItem = new MenuItem("About");
+        MenuItem helpContentItem = new MenuItem("Help Contents");
+        helpMenu.getItems().addAll(aboutItem, helpContentItem);
         
+        aboutItem.setOnAction((ActionEvent event) -> {
+            doShowAboutDialog();
+        });
+        
+        helpContentItem.setOnAction((ActionEvent event) -> {
+            doShowAboutDialog();
+        });
+        
+
         /*// Third Menu Option
         Menu menuView = new Menu("3rd Menu");*/
 
-        menuBar.getMenus().addAll(optionMenu, aboutMenu);
+        menuBar.getMenus().addAll(optionMenu, helpMenu);
 
         return menuBar;
     }
@@ -306,6 +322,9 @@ public class Main extends Application
         return statusBar;
     }
 
+    /**
+     * Our own version of an exit information box.
+     */
     private void closeProgram(){
         Boolean answer = ConfirmBox.display("Unsaved files", "Are you sure you want to Exit?");
         if(answer)
@@ -321,7 +340,6 @@ public class Main extends Application
     {
         VBox vbox = new VBox();
         
-
         // Define the columns
         // The Title-column
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
@@ -476,4 +494,53 @@ public class Main extends Application
         }
     }
     
+    /**
+     * Displays an example of an alert (info) dialog. In this case an "about"
+     * type of dialog.
+     */
+    private void doShowAboutDialog()
+    {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("About");
+        alert.setHeaderText("Newsstand Register");
+        alert.setContentText("Authors:"
+                + "\nOscar Wika, Siv Furland, Thomas Todal & Kristoffer Martinsen\n"
+                + "\nSubject:\nObjektorientert Programmering (ID101912)\n"
+                + "\nVersion: \n0.1 2016-04-29");
+        alert.showAndWait();
+    }
+    
+    /**
+     * Exit the application. Displays a confirmation dialog.
+     */
+    private void doExitApplication()
+    {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Exit Application ?");
+        alert.setContentText("Are you sure you want to exit this application?");
+        
+        /*alert.getButtonTypes().clear();
+        alert.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        
+        //Deactivate Defaultbehavior for yes-Button:
+        Button yesButton = (Button) alert.getDialogPane().lookupButton( ButtonType.OK );
+        yesButton.setDefaultButton( false );
+
+        //Activate Defaultbehavior for no-Button:
+        Button noButton = (Button) alert.getDialogPane().lookupButton( ButtonType.CANCEL );
+        noButton.setDefaultButton( false );*/
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK)
+        {
+            // ... user chose OK
+            System.exit(0);
+        } else
+        {
+            // ... user chose CANCEL or closed the dialog
+            // then do nothing.
+        }
+    }
 }

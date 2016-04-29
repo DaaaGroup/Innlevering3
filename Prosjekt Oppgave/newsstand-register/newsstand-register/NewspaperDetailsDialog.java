@@ -112,7 +112,7 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         grid.add(issueNoTxt, 1, 2);
         grid.add(new Label("Release date:"), 0, 3);
         grid.add(releaseDate, 1, 3);
-
+        
         getDialogPane().setContent(grid);
 
         // Convert the result to a username-password-pair when the OK button is clicked.
