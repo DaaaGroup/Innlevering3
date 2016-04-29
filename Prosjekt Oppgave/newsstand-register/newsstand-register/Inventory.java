@@ -20,10 +20,10 @@ public class Inventory
     }
     
     /**
-     * This method is responsible for creating an object of type BookSeries and
-     * add it to the inventory list.
+     * This method is responsible for creating an object
+     * of type BookSeries and add it to the inventory list.
      * 
-     * @param oldBook
+     * @param oldBook The old book object.
      */
     public void addNewBookSeries(Literature oldBook)
     {
@@ -33,6 +33,15 @@ public class Inventory
         literatureInStock.add(newBookSeries);
             removeItem(oldBook);
         }
+    }
+    
+    /**
+     * 
+     * @param literature 
+     */
+    public void addLiterature(Literature literature)
+    {
+        literatureInStock.add(literature);
     }
     
     /**
@@ -63,15 +72,6 @@ public class Inventory
     {
         Magazine newMagazine = new Magazine(title, publisher, numberPerWeek, releaseDate, "");
         literatureInStock.add(newMagazine);
-    }
-    
-    /**
-     * 
-     * @param literature 
-     */
-    public void addLiterature(Literature literature)
-    {
-        literatureInStock.add(literature);
     }
     
     /**
@@ -120,6 +120,10 @@ public class Inventory
         return literatureDetails;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Literature> returnAllInventory()
     {
         ArrayList<Literature> litList = new ArrayList<>();
@@ -173,9 +177,11 @@ public class Inventory
      * @param input The string it should use to find matching items.
      * @return matchingItems A list of items matching the search string.
      */
-public ArrayList<Literature> searchForTitleAndPublisher(String input) {
+    public ArrayList<Literature> searchForTitleAndPublisher(String input) 
+    {
         input = input.trim().toLowerCase();
         ArrayList<Literature> foundLiterature = new ArrayList<>();
+        
         for (Literature literature : literatureInStock) {
             if (literature.getTitle().toLowerCase().contains(input)) {
                 foundLiterature.add(literature);
@@ -183,7 +189,6 @@ public ArrayList<Literature> searchForTitleAndPublisher(String input) {
                 foundLiterature.add(literature);
             }
         }
-
         return foundLiterature;
     }
     
@@ -307,31 +312,5 @@ public ArrayList<Literature> searchForTitleAndPublisher(String input) {
      */
     public void removeItem(Literature literature){
         literatureInStock.remove(literature);
-    }
-    
-    /**
-     * Test dummies
-     */
-    public void addDummyObjets()
-    {
-        this.literatureInStock.add(new Newspaper("VG", "Schibsted Norge",400, "hallo", "pizza"));
-        this.literatureInStock.add(new Newspaper("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
-        this.literatureInStock.add(new Newspaper("Dagbladet", "Dagbladet", 12, "ost", "cake"));
-        this.literatureInStock.add(new Newspaper("Hordaland", "Hordaland", 12, "cake", "pst"));
-        //
-        this.literatureInStock.add(new Magazine("VG", "Schibsted Norge",400, "hallo", "pizza"));
-        this.literatureInStock.add(new Magazine("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
-        this.literatureInStock.add(new Magazine("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
-        this.literatureInStock.add(new Magazine("Dagbladet", "Dagbladet", 12, "ost", "cake"));
-        //
-        this.literatureInStock.add(new Periodical("VG", "Schibsted Norge",400, "hallo", "pizza"));
-        this.literatureInStock.add(new Periodical("Aftenposten", "Schibsted Norge", 12, "hallo", "ost"));
-        this.literatureInStock.add(new Periodical("Dagbladet", "Dagbladet", 12, "ost", "cake"));
-        this.literatureInStock.add(new Periodical("Hordaland", "Hordaland", 12, "cake", "pst"));
-        //
-        this.literatureInStock.add(new Book("VG", "Schibsted Norge", "lul", "hallo", "pizza"));
-        this.literatureInStock.add(new Book("Aftenposten", "Schibsted Norge", "lol", "hallo", "ost"));
-        this.literatureInStock.add(new Book("Dagbladet", "Dagbladet", "lol", "ost", "cake"));
-        this.literatureInStock.add(new Book("Hordaland", "Hordaland", "awodm", "cake", "pst"));
     }
 }

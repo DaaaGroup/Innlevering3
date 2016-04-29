@@ -254,50 +254,35 @@ public class Main extends Application
     private void addLiterature(TreeItem<String> selectedItem){
         // NEWSPAPER
         if(selectedItem.getValue().equals("Newspaper")){
-            if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Remove newspaper");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
+            if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register newspaper");
                 doAddNewspaper();
             }}
         // MAGAZINE
         if(selectedItem.getValue().equals("Magazine")){
-            if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Remove Magazine");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
+            if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Magazine");
                 doAddMagazine();
             }}
         // PERIODICAL
         if(selectedItem.getValue().equals("Periodical")){
-            if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Remove Periodical");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
+            if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Periodical");
                 doAddPeriodical();
             }}
         // BOOK
         if(selectedItem.getValue().equals("Book")){
-            if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Remove Book");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
+            if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Book");
                 doAddBook();
             }}
         // BOOK SERIES
         if(selectedItem.getValue().equals("Book Series")){
-            if(selectedItem.getParent().getValue().equals("Features")){
-                System.out.println("Remove Book Series");
-            }
-            else if(selectedItem.getParent().getValue().equals("Register"))
+            if(selectedItem.getParent().getValue().equals("Register"))
             {
                 System.out.println("Register Book Series");
                 doAddBookSeries();
@@ -318,10 +303,8 @@ public class Main extends Application
         return item;
     }
     
-
      /**
      * Creates the StatusBar to be displayed at the bottom of the window.
-     *
      * @return the StatusBar as a Node
      */
     private Node createStatusBar()
@@ -335,7 +318,6 @@ public class Main extends Application
     
     /**
      * Creates the content of the center section of the GUI.
-     *
      * @return the node to be placed in the center of the BorderPane
      */
     private Node createCentreContent()
@@ -357,11 +339,6 @@ public class Main extends Application
         TableColumn<Literature, String> categoryColumn = new TableColumn<>("Category");
         categoryColumn.setMinWidth(200);
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
-        
-        // The releaseDate-column
-        /*TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release Date");
-        categoryColumn.setMinWidth(170);
-        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));*/
 
         tableView = new TableView();
         tableView.setItems(literatures);
@@ -402,7 +379,6 @@ public class Main extends Application
      * @param selectedItem 
      */
     private void removeLiterature(TreeItem<String> selectedItem) {
-       // NEWSPAPER
         if(selectedItem.getValue().equals("Remove")){
             if(selectedItem.getParent().getValue().equals("Features")){
                 System.out.println("Spesified literature removed");

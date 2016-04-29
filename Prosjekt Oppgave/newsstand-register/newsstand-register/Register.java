@@ -88,8 +88,8 @@ public class Register {
     }
     
     /**
-     * 
-     * @return 
+     * Returns an array list of alle the literature in the inventory.
+     * @return Returns an array list of alle the literature in the inventory.
      */
     public ArrayList<Literature> returnAllInventory()
     {
@@ -100,7 +100,7 @@ public class Register {
      * Removes a specified literature from the register.
      *
      * @param serialNumber The number of the literature you wish to remove.
-     * @return the removed product. 
+     * @return The removed product. 
      */
     public boolean removeItem(int serialNumber) {
         return inventory.removeItem(serialNumber);
@@ -147,7 +147,6 @@ public class Register {
     }
 
     /**
-     *
      * Convert book to a book series. 
      * 
      * @param menuSelection What kind of book is selected. 
@@ -157,8 +156,8 @@ public class Register {
     }
 
     /**
-     * 
-     * @return 
+     * Returns the size of the inventory.
+     * @return Returns the size of the inventory.
      */
     public int getSize()
     {
@@ -175,8 +174,8 @@ public class Register {
     
     /**
      * 
-     * @param input
-     * @return 
+     * @param input The text input from user.
+     * @return Returns
      */
     public ArrayList<Literature> searchForLiterature(String input)
     {

@@ -14,7 +14,7 @@ public abstract class Literature
     private String publisher;
     // When released
     private String releaseDate;
-    
+    // The type(category) of the product.
     private String type;
     // The serial number of the product
     private final int NUMBER;
@@ -26,7 +26,7 @@ public abstract class Literature
      * @param title The title of the literature.
      * @param publisher The publisher of the literature.
      * @param releaseDate The release date of the literature.
-     * @param type
+     * @param type The type(category) of the product.
      */
     public Literature(String title, String publisher, String releaseDate, String type)
     {
@@ -56,7 +56,6 @@ public abstract class Literature
         return this.title;
     }
     
-    
     /**
      * Returns the name of the publisher.
      * @return Returns the name of the publisher.
@@ -76,8 +75,8 @@ public abstract class Literature
     }
     
     /**
-     * 
-     * @return 
+     * Returns the type(category) of the product.
+     * @return Returns the type(category) of the product.
      */
     public String getType()
     {

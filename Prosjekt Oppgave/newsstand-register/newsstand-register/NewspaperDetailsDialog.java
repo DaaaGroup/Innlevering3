@@ -19,7 +19,6 @@ import javafx.util.Callback;
 
 public class NewspaperDetailsDialog extends Dialog<Newspaper>
 {
-
     private TextField title;
     private TextField publisher;
     private TextField issueNoTxt;
@@ -56,6 +55,11 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         releaseDate = new TextField();
         releaseDate.setPromptText("DD/MM/YYYY");
         
+        /**
+         * Avoids the possibility of exceptions.
+         * The user won't be add an object to the table,
+         * unless the user has filled out all the text fields.
+         */
         title.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

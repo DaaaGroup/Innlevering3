@@ -15,7 +15,6 @@ public class Book extends Literature {
     private final String author; 
 
     /**
-     *
      * Uses the super call to get the fields from the super class: Literature.
      * Creates the information that the Book object needs. 
      * 
@@ -23,13 +22,11 @@ public class Book extends Literature {
      * @param author The author of the book.
      * @param publisher The publisher of the book.
      * @param releaseDate The release date of the book.
-     * @param type
+     * @param type The type(category) of the product (book).
      */
     public Book(String title, String author, String publisher, String releaseDate, String type) {
         super(title, publisher, releaseDate, type);
         this.author = author;
-        
-
     }
     
     /**
@@ -42,9 +39,8 @@ public class Book extends Literature {
     }
     
     /**
-     * 
      * Prints out the information of the book.
-     * 
+     * This method was used in the previous version of out text based UI.
      * @return Return the details of the book. 
      * Such as the serial number, the title, publisher and the release date.
      */

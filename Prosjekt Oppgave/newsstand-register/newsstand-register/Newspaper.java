@@ -18,7 +18,7 @@ public class Newspaper extends Literature
      * @param publisher Name of the publisher.
      * @param numberPerWeek How many times a week it is released.
      * @param releaseDate The release date.
-     * @param type
+     * @param type The type(category) of the product.
      */
     public Newspaper(String title, String publisher, int numberPerWeek, String releaseDate, String type)
     {

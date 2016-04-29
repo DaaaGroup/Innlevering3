@@ -19,7 +19,6 @@ import javafx.util.Callback;
 
 public class MagazineDetailsDialog extends Dialog<Magazine>
 {
-
     private TextField title;
     private TextField publisher;
     private TextField issueNoTxt;
@@ -56,12 +55,16 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
         releaseDate = new TextField();
         releaseDate.setPromptText("DD/MM/YYYY");
         
+        /**
+         * Avoids the possibility of exceptions.
+         * The user won't be add an object to the table,
+         * unless the user has filled out all the text fields.
+         */
         title.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 setButtonDisable();
             }
-        
         });
         publisher.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -130,7 +133,8 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
     }
     
     /**
-     * 
+     * Method for checking the button.
+     * You won't be able to press it if you left any text fields empty.
      */
     private void setButtonDisable() {
         if(!checkOkButton()){
@@ -141,8 +145,8 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
     }
     
     /**
-     * 
-     * @return 
+     * Returns false if all the text fields are empty.
+     * @return isNotEmpty Returns false if all the text fields are empty.
      */
     private boolean checkOkButton()
     {

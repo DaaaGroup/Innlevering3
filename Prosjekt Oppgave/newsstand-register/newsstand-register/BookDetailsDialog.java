@@ -10,8 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 /**
- * A dialog used to get the necessary information about a magazine from the
- * user, in order to be able to create a Magazine instance to be added
+ * A dialog used to get the necessary information about a book from the
+ * user, in order to be able to create a Book instance to be added
  * to the register.
  *
  * @author asty & Oscar Wika, Thomas Todal, Siv Furland, Kristoffer Martinsen.
@@ -57,12 +57,16 @@ public class BookDetailsDialog extends Dialog<Book>
         releaseDate = new TextField();
         releaseDate.setPromptText("DD/MM/YYYY");
         
+        /**
+         * Avoids the possibility of exceptions.
+         * The user won't be add an object to the table,
+         * unless the user has filled out all the text fields.
+         */
         title.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 setButtonDisable();
             }
-        
         });
         publisher.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -83,8 +87,7 @@ public class BookDetailsDialog extends Dialog<Book>
             }
         });
         
-
-
+        
         TextField totalNoOfIssuesTxt = new TextField();
         totalNoOfIssuesTxt.setPromptText("Total number of issues");
         // Prevent characters (non-integers) to be added
@@ -134,6 +137,7 @@ public class BookDetailsDialog extends Dialog<Book>
             }
         });
     }
+    
     /**
      * 
      */
