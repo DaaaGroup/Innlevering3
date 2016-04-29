@@ -108,8 +108,8 @@
 
 .table-view > .virtual-flow > .scroll-bar:vertical,
 .table-view > .virtual-flow > .scroll-bar:vertical > .track,
-.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
-.table-view > .virtual-flow > .scroll-bar:horizontal,
+    .table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+    .table-view > .virtual-flow > .scroll-bar:horizontal,
 .table-view > .virtual-flow > .scroll-bar:horizontal > .track,
 .table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
     -fx-background-color: transparent;
@@ -122,6 +122,6 @@
 }
 
 .table-view .filler {
-    -fx-background-color: red;
+    -fx-background-color:#00ff00;
 }
 

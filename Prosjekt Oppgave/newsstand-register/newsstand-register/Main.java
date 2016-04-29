@@ -50,7 +50,7 @@ public class Main extends Application
     Button button;
     Button button2;
     Stage window;
-    Register register = new Register();
+    //Register register = new Register();
     TableView<Literature> tableView;
     private ObservableList<Literature> literatures;
     TreeView<String> tree;
@@ -119,9 +119,16 @@ public class Main extends Application
         
         txt.textProperty().addListener((v, oldValue, newValue) -> {
             
-            ArrayList<Literature> searchResult = register.searchForLiterature(newValue);
+            ArrayList<Literature> searchResult = litReg.searchForLiterature(newValue);
+            if(newValue.length() > 0)
+            {
             literatures.clear();
             literatures.addAll(searchResult);
+            } else {
+                literatures.clear();
+                literatures.addAll(litReg.returnAllInventory());
+            }
+            
         });
  
         
@@ -233,8 +240,9 @@ public class Main extends Application
             if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
                 if(mouseEvent.getClickCount() == 2)
                 {
-                if(tree.getSelectionModel().getSelectedItem().getParent().getValue() == null)
-                {}
+                if(tree.getSelectionModel().getSelectedItem().getParent().getValue() == null){
+                    
+                }
                 else if(tree.getSelectionModel().getSelectedItem().getParent().getValue().equals("Register")){
                 addLiterature(tree.getSelectionModel().getSelectedItem());
                 }
@@ -341,7 +349,7 @@ public class Main extends Application
     private Node createCentreContent()
     {
         VBox vbox = new VBox();
-                
+        
         // Define the columns
         // The Title-column
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
@@ -357,11 +365,18 @@ public class Main extends Application
         TableColumn<Literature, String> categoryColumn = new TableColumn<>("Category");
         categoryColumn.setMinWidth(200);
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+        
+        
+        // The releaseDate-column
+        /*TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release Date");
+        categoryColumn.setMinWidth(170);
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));*/
 
         tableView = new TableView();
         tableView.setItems(literatures);
         tableView.getColumns().addAll(titleColumn, publisherColumn, categoryColumn);
         
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         vbox.getChildren().add(tableView);
         return vbox;
     }
