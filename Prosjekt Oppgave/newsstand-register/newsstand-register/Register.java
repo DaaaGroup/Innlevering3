@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 /**
@@ -18,15 +17,6 @@ public class Register {
     public Register() {
         inventory = new Inventory();
     }
-
-    /**
-     * Creates a new Newspaper.
-     *
-     * @param newspaper
-     */
-    /*public void addNewspaper(Newspaper newspaper) {
-        inventory.addNewNewspaper(newspaper);
-    }*/
     
     /**
      * Creates a new Newspaper.
@@ -73,7 +63,7 @@ public class Register {
         inventory.addNewBook(title, author, publisher, releaseDate);
     }
     
-        /**
+    /**
      * Creates a new Book.
      *
      * @param oldBook
@@ -97,6 +87,10 @@ public class Register {
         return returnString;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Literature> returnAllInventory()
     {
         return inventory.returnAllInventory();
@@ -113,7 +107,6 @@ public class Register {
     }
 
     /**
-     *
      * Items which has the requirements of the searching result. 
      * 
      * @param className The name of the "class". 
@@ -172,10 +165,19 @@ public class Register {
         return inventory.getSize();
     }
     
+    /**
+     * 
+     * @param literature 
+     */
     public void removeItem(Literature literature){
         inventory.removeItem(literature);
     }
     
+    /**
+     * 
+     * @param input
+     * @return 
+     */
     public ArrayList<Literature> searchForLiterature(String input)
     {
         return inventory.searchForTitleAndPublisher(input);

@@ -1,9 +1,7 @@
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
-import javafx.scene.DepthTest;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -16,7 +14,7 @@ import javafx.util.Callback;
  * user, in order to be able to create a Newspaper instance to be added
  * to the register.
  *
- * @author asty & Oscar Wika
+ * @author asty & Oscar Wika, Thomas Todal, Siv Furland, Kristoffer Martinsen.
  */
 
 public class NewspaperDetailsDialog extends Dialog<Newspaper>
@@ -131,6 +129,9 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         });
     }
 
+    /**
+     * 
+     */
     private void setButtonDisable() {
         if(!checkOkButton()){
             okayButton.setDisable(true);
@@ -139,6 +140,10 @@ public class NewspaperDetailsDialog extends Dialog<Newspaper>
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     private boolean checkOkButton()
     {
         boolean isNotEmpty = true;

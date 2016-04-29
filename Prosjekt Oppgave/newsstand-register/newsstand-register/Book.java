@@ -1,4 +1,3 @@
-
 /**
  * Represents the different Books.
  * Books has following information:
@@ -34,8 +33,8 @@ public class Book extends Literature {
     }
     
     /**
-     * 
-     * @return 
+     * Returns the name of the author.
+     * @return Returns the name of the author. 
      */
     public String getAuthor()
     {
@@ -46,8 +45,8 @@ public class Book extends Literature {
      * 
      * Prints out the information of the book.
      * 
-     * @return Return the details of the book. Such as the serial number
-     * ,the title, publisher and the release date.
+     * @return Return the details of the book. 
+     * Such as the serial number, the title, publisher and the release date.
      */
     @Override
     public String getLongDescription()

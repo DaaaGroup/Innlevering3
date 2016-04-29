@@ -3,8 +3,7 @@ import java.util.ArrayList;
 /**
  * This class handles all of the literature in the inventory.
  * 
- * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland 
- * @deprecated Kristoffer Martinsen
+ * @author Oscar Wika, Thomas Todal, Kristoffer Martinsen & Siv Furland
  * @version 0.1
  */
 public class Inventory
@@ -302,6 +301,10 @@ public ArrayList<Literature> searchForTitleAndPublisher(String input) {
         return this.literatureInStock.size();
     }
     
+    /**
+     * 
+     * @param literature 
+     */
     public void removeItem(Literature literature){
         literatureInStock.remove(literature);
     }

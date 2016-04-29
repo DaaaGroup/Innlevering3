@@ -14,12 +14,12 @@ import javafx.util.Callback;
  * user, in order to be able to create a Magazine instance to be added
  * to the register.
  *
- * @author asty & Oscar Wika
+ * @author asty & Oscar Wika, Thomas Todal, Siv Furland, Kristoffer Martinsen.
  */
 
 public class BookDetailsDialog extends Dialog<Book>
 {
-
+    // Textfield that lets you enter the title of the book.
     private TextField title;
     private TextField publisher;
     private TextField author;
@@ -134,6 +134,9 @@ public class BookDetailsDialog extends Dialog<Book>
             }
         });
     }
+    /**
+     * 
+     */
     private void setButtonDisable() {
         if(!checkOkButton()){
             okayButton.setDisable(true);
@@ -142,6 +145,10 @@ public class BookDetailsDialog extends Dialog<Book>
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     private boolean checkOkButton()
     {
         boolean isNotEmpty = true;

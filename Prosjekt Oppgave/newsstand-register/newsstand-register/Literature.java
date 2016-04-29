@@ -75,6 +75,10 @@ public abstract class Literature
         return this.releaseDate;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getType()
     {
         return type;

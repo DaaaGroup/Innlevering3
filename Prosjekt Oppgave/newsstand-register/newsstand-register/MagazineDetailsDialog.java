@@ -14,7 +14,7 @@ import javafx.util.Callback;
  * user, in order to be able to create a Magazine instance to be added
  * to the register.
  * 
- * @author asty & Oscar Wika
+ * @author asty & Oscar Wika, Thomas Todal, Siv Furland, Kristoffer Martinsen.
  */
 
 public class MagazineDetailsDialog extends Dialog<Magazine>
@@ -129,6 +129,9 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
         });
     }
     
+    /**
+     * 
+     */
     private void setButtonDisable() {
         if(!checkOkButton()){
             okayButton.setDisable(true);
@@ -137,6 +140,10 @@ public class MagazineDetailsDialog extends Dialog<Magazine>
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     private boolean checkOkButton()
     {
         boolean isNotEmpty = true;
